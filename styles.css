@@ -42,14 +42,15 @@ body {
 }
 
 .lvl1Body {
-    background-image: url(/imgs/first_round.jpg);
+    background-image: url(./imgs/first_round.jpg);
 }
 
 .potion {
-    background: url(/imgs/elixir.png);
+    background: url(./imgs/elixir.png);
 }
 
 .enemy {
-    background: url(/imgs/drago.png);
+    background: url(./imgs/drago.png);
 }
+
 
