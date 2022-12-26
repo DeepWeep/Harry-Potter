@@ -27,6 +27,8 @@ html, body {
     height: 60px;
     font-size: 20px;
     font-weight: bolder;
-    border: 2px solid black;
+    border: 2px solid beige;
     border-radius: 20%;
+    background-color: #FFFFFF00;
+    color: beige;
 }
