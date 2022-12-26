@@ -3,7 +3,6 @@ html, body {
     height: 100vh;
     position: relative;
     margin: 0;
-    background-image: url(./imgs/start.jpg);
     background-size: 100% 100%;
 }
 #title_game {
@@ -31,4 +30,10 @@ html, body {
     border-radius: 20%;
     background-color: #FFFFFF00;
     color: beige;
+}
+.mainMenuBody {
+    background-image: url(./imgs/start.jpg);
+}
+.lvl1Body {
+    background-image: url(/imgs/first_round.jpg);
 }
