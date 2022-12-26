@@ -1,10 +1,13 @@
-html, body {
+html,
+body {
     width: 100vw;
     height: 100vh;
     position: relative;
     margin: 0;
     background-size: 100% 100%;
+    overflow:  hidden;
 }
+
 #title_game {
     height: 20vh;
     width: 100%;
@@ -13,6 +16,7 @@ html, body {
     font-size: 100px;
     text-align: center;
 }
+
 #buttons_start_game {
     height: 40vh;
     width: 100%;
@@ -21,6 +25,7 @@ html, body {
     display: flex;
     justify-content: space-evenly;
 }
+
 .buttons_main {
     width: 150px;
     height: 60px;
@@ -31,9 +36,20 @@ html, body {
     background-color: #FFFFFF00;
     color: beige;
 }
+
 .mainMenuBody {
     background-image: url(./imgs/start.jpg);
 }
+
 .lvl1Body {
     background-image: url(/imgs/first_round.jpg);
 }
+
+.potion {
+    background: url(/imgs/elixir.png);
+}
+
+.enemy {
+    background: url(/imgs/drago.png);
+}
+
