@@ -40,7 +40,6 @@ body {
 .main_menu_body {
     background-image: url(./imgs/start.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .lvl1_body {
