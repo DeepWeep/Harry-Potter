@@ -63,13 +63,13 @@ body {
 
 #hero {
     position: fixed;
-    bottom: 0%;
-    left: 33.3%;
-    width: 33.3%;
-    height: 30px;
-    background-color: blue;
-    border: 3px black;
-    border-style: solid;
+    bottom: -7vh;
+    left: 30%;
+    width: 40%;
+    height: 10vh;
+    border: 5px gold solid;
+    border-radius: 50%;
+    display: none;
 }
 
 #beamwand_harry_to_drago {

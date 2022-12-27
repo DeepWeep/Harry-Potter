@@ -1,0 +1,43 @@
+'use strict';
+
+let handHarry = document.getElementById ('hand');
+let torsoHarry = document.getElementById ('hero');
+let enemyTom = document.getElementById ('tom');
+let enemiesSecond = document.getElementById ('drago');
+let elixirTom = document.getElementById ('potion_tom');
+let elixirSecond = document.getElementById ('potion_drago');
+let beamHarryToSecond = document.getElementById ('beamwand_harry_to_drago');
+let beamHarryToTom = document.getElementById ('beamwand_harry_to_tom');
+let beamTomToHero = document.getElementById ('beamwand_tom_to_hero');
+let beamSecondToHero = document.getElementById ('beamwand_drago_to_hero');
+
+let harry = {
+    energy: 1,
+    fireIn: function (event) {
+        if (event.code === 'Space') {
+        torsoHarry.style.display = 'block';
+        };
+    },
+    fireOut: function (event) {
+        if (event.code === 'Space') {
+            torsoHarry.style.display = 'none';
+        };
+    }
+};
+
+let tom = {
+    energy: 1,
+    fire: function () {
+
+    }
+};
+
+let secondEnemy = {
+    energy: 1,
+    fire: function () {
+
+    }
+};
+
+document.addEventListener ('keydown',harry.fireIn);
+document.addEventListener ('keyup',harry.fireOut);
