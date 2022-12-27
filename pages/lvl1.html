@@ -10,11 +10,26 @@
     <title>Harry Potter</title>
 </head>
 
-<body class='lvl1_body'>
-    <div class='potion'></div>
-    <div class='drago'></div>
-    <div class= 'hand'></div>
-    <div class ='hero'></div>
+<body class='lvl1_body'> 
+    <audio src="/audio/first_round.mp3" autoplay loop></audio>
+    <div class='potion' id="potion_tom"></div>
+    <div class='potion' id="potion_drago"></div>
+    <div class='enemies' id="tom"></div>
+    <div class='enemies' id="drago"></div>
+    <div id= 'hand'></div>
+    <div id ='hero'></div>
+    <svg id="beamwand_harry_to_drago" viewBox="0 0 100 100">
+            <polygon points="98,0 100,2 0,100" stroke="gold" fill="gold" />
+    </svg>
+    <svg id="beamwand_harry_to_tom" viewBox="0 0 384 120">
+        <polygon points="460,0 464,4 -240,150" stroke="gold" fill="gold" />
+    </svg>
+    <svg id="beamwand_tom_to_hero" viewBox="0 0 120 120">
+        <polygon points="-25,1 -24,0 120,120" stroke="red" fill="red" />
+    </svg>
+    <svg id="beamwand_drago_to_hero" viewBox="0 0 130 180">
+        <polygon points="125,-30 130,-30 70,400" stroke="darkred" fill="darkred" />
+    </svg> 
 </body>
 
 </html>

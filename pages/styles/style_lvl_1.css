@@ -8,20 +8,49 @@ body {
     background-image: url(/imgs/first_round.jpg);
 }
 
-.potion {
-    background-image: url(/imgs/elixir.png);
-}
-
-.drago {
-    background-image: url(/imgs/drago.png);
+.enemies {
+    position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
     width: 30%;
-    height: 100%;
     margin: auto;
+    top: 50vh;
+    opacity: 1;
 }
 
-.hand {
+#drago {
+    left: 55vw;
+    background-image: url(/imgs/drago.png);
+    height: 25%; 
+}
+
+#tom {
+    left: 15vw;
+    background-image: url(/imgs/tom_randle.png);
+    height: 40%;
+}
+
+.potion {
+    background-image: url(/imgs/elixir.png);
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+}
+
+#potion_tom {
+    top: 78%;
+    left: 18%;
+}
+
+#potion_drago {
+    top: 66%;
+    left: 57%;
+}
+
+#hand {
     position: absolute;
     top: 42%;
     left: 62%;
@@ -32,13 +61,49 @@ body {
     background-size: contain;
 }
 
-.hero {
+#hero {
     position: fixed;
     bottom: 0%;
     left: 33.3%;
     width: 33.3%;
     height: 30px;
-    background-color: darkred;
-    border: 5px black;
+    background-color: blue;
+    border: 3px black;
     border-style: solid;
+}
+
+#beamwand_harry_to_drago {
+    position: absolute;
+    top: 59vh;
+    left: 59vw;
+    width: 13vw;
+    height: 13vh;
+    display: none;
+}
+
+#beamwand_harry_to_tom {
+    position: absolute;
+    top: 59vh;
+    left: 22vw;
+    width: 48vw;
+    height: 15vh;
+    display: none;
+}
+
+#beamwand_tom_to_hero {
+    position: absolute;
+    top: 57vh;
+    left: 17.5vw;
+    width: 40vw;
+    height: 42vh;
+    display: none;
+}
+
+#beamwand_drago_to_hero {
+    position: absolute;
+    top: 70vh;
+    left: 45vw;
+    width: 10vw;
+    height: 29vh;
+    display: none;
 }
