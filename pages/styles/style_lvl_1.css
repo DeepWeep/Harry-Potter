@@ -1,0 +1,44 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    background-size: 100% 100%;
+    overflow: hidden;
+    background-image: url(/imgs/first_round.jpg);
+}
+
+.potion {
+    background-image: url(/imgs/elixir.png);
+}
+
+.drago {
+    background-image: url(/imgs/drago.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30%;
+    height: 100%;
+    margin: auto;
+}
+
+.hand {
+    position: absolute;
+    top: 42%;
+    left: 62%;
+    background-image: url(/imgs/hand_play.png);
+    width: 65%;
+    height: 65%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.hero {
+    position: fixed;
+    bottom: 0%;
+    left: 33.3%;
+    width: 33.3%;
+    height: 30px;
+    background-color: darkred;
+    border: 5px black;
+    border-style: solid;
+}

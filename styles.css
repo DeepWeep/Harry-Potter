@@ -6,6 +6,8 @@ body {
     margin: 0;
     background-size: 100% 100%;
     overflow: hidden;
+    background-image: url(./imgs/start.jpg);
+    background-repeat: no-repeat;
 }
 
 #title_game {
@@ -37,47 +39,5 @@ body {
     color: beige;
 }
 
-.main_menu_body {
-    background-image: url(./imgs/start.jpg);
-    background-repeat: no-repeat;
-}
 
-.lvl1_body {
-    background-image: url(./imgs/first_round.jpg);
-}
-
-.potion {
-    background: url(./imgs/elixir.png);
-}
-
-.drago {
-    background: url(./imgs/drago.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 30%;
-    height: 100%;
-    margin: auto;
-}
-
-.hand {
-    position: absolute;
-    top: 42%;
-    left: 62%;
-    background: url(./imgs/hand_play.png);
-    width: 65%;
-    height: 65%;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.hero {
-    position: fixed;
-    bottom: 0%;
-    left: 33.3%;
-    width: 33.3%;
-    height: 30px;
-    background-color: darkred;
-    border: 5px black;
-    border-style: solid;
-}
 
