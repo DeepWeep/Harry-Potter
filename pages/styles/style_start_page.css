@@ -6,7 +6,7 @@ body {
     margin: 0;
     background-size: 100% 100%;
     overflow: hidden;
-    background-image: url(./imgs/start.jpg);
+    background-image: url(/imgs/start.jpg);
     background-repeat: no-repeat;
 }
 
@@ -38,6 +38,3 @@ body {
     background-color: #FFFFFF00;
     color: beige;
 }
-
-
-

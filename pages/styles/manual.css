@@ -1,0 +1,51 @@
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    background-size: 100% 100%;
+    overflow: hidden;
+    background-image: url(/imgs/start.jpg);
+    background-repeat: no-repeat;
+}
+
+#key_and_action {
+    width: 90%;
+    height: 20%;
+    padding-left: 10vw;
+    font-size: 50px;
+    font-weight: bolder;
+    color: gold;
+    display: flex;
+}
+
+.control_list {
+    width: 90%;
+    height: 10%;
+    padding-left: 10vw;
+    font-size: 30px;
+    font-weight: bold;
+    color: gold;
+    display: flex;
+}
+
+.control_keys_1 {
+    height: 100%;
+    width: 60vw;
+}
+
+.control_keys_2 {
+    height: 100%;
+    width: 30vw;
+}
+
+#back_to_start {
+    width: 10vw;
+    height: 20vh;
+    margin-top: 5vh;
+    margin-left: 45vw;
+    border: none;
+    background-color: #66666600;
+    border-radius: 50%;
+}
