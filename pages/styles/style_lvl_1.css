@@ -55,10 +55,9 @@ body {
     top: 42%;
     left: 62%;
     background-image: url(/imgs/hand_play.png);
-    width: 65%;
-    height: 65%;
-    background-repeat: no-repeat;
-    background-size: contain;
+    width: 38%;
+    height: 58%;
+    background-size: 100% 100%;
 }
 
 #hero {
@@ -74,8 +73,8 @@ body {
 
 #beamwand_harry_to_drago {
     position: absolute;
-    top: 59vh;
-    left: 59vw;
+    top: 57vh;
+    left: 57vw;
     width: 13vw;
     height: 13vh;
     display: none;
@@ -83,9 +82,9 @@ body {
 
 #beamwand_harry_to_tom {
     position: absolute;
-    top: 59vh;
-    left: 22vw;
-    width: 48vw;
+    top: 57vh;
+    left: 15vw;
+    width: 60vw;
     height: 15vh;
     display: none;
 }
@@ -96,7 +95,7 @@ body {
     left: 17.5vw;
     width: 40vw;
     height: 42vh;
-    display: none;
+    opacity: 0;
 }
 
 #beamwand_drago_to_hero {
@@ -105,5 +104,5 @@ body {
     left: 45vw;
     width: 10vw;
     height: 29vh;
-    display: none;
+    opacity: 0;
 }

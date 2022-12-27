@@ -11,33 +11,67 @@ let beamHarryToTom = document.getElementById ('beamwand_harry_to_tom');
 let beamTomToHero = document.getElementById ('beamwand_tom_to_hero');
 let beamSecondToHero = document.getElementById ('beamwand_drago_to_hero');
 
+let tomObject = {
+    energy: 1,
+};
+
+let secondEnemyObject = {
+    energy: 1,
+};
+
 let harry = {
     energy: 1,
-    fireIn: function (event) {
+    defenseIn: function (event) {
         if (event.code === 'Space') {
         torsoHarry.style.display = 'block';
         };
     },
-    fireOut: function (event) {
+    defenseOut: function (event) {
         if (event.code === 'Space') {
             torsoHarry.style.display = 'none';
+        };
+    },
+    fireIn: function (event) {
+        event.preventDefault ();
+        document.getElementById ('shotharry').play ();
+        if (event.button === 0) {
+            beamHarryToTom.style.display = 'block';
+            tomObject.energy -= 0.25;
+            if (tomObject.energy > 0) {
+                document.getElementById ('woundtom').play ();
+            };
+            enemyTom.style.opacity = tomObject.energy;
+            if (tomObject.energy === 0) {
+                document.getElementById ('deadtom').play ();
+                elixirTom.style.display = 'block';
+            };
+        };
+        if (event.button === 2) {
+            beamHarryToSecond.style.display = 'block';
+            secondEnemyObject.energy -= 0.25;
+            if (secondEnemyObject.energy > 0) {
+                document.getElementById ('wounddrago').play ();
+            };
+            enemiesSecond.style.opacity = secondEnemyObject.energy;
+            if (secondEnemyObject.energy === 0) {
+                document.getElementById ('deaddrago').play ();
+                elixirSecond.style.display = 'block';
+            };
+        };
+    },
+    fireOut: function (event) {
+        event.preventDefault (); 
+        if (event.button === 0) {
+            beamHarryToTom.style.display = 'none';
+        };
+        if (event.button === 2) {
+            beamHarryToSecond.style.display = 'none';
         };
     }
 };
 
-let tom = {
-    energy: 1,
-    fire: function () {
+document.addEventListener ('keydown',harry.defenseIn);
+document.addEventListener ('keyup',harry.defenseOut);
+document.body.addEventListener ('mousedown',harry.fireIn);
+document.body.addEventListener ('mouseup',harry.fireOut);
 
-    }
-};
-
-let secondEnemy = {
-    energy: 1,
-    fire: function () {
-
-    }
-};
-
-document.addEventListener ('keydown',harry.fireIn);
-document.addEventListener ('keyup',harry.fireOut);
