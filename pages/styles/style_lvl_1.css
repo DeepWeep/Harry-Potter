@@ -95,7 +95,7 @@ body {
     left: 17.5vw;
     width: 40vw;
     height: 42vh;
-    opacity: 0;
+    display: none;
 }
 
 #beamwand_drago_to_hero {
@@ -104,5 +104,5 @@ body {
     left: 45vw;
     width: 10vw;
     height: 29vh;
-    opacity: 0;
+    display: none;
 }

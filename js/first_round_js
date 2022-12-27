@@ -10,13 +10,39 @@ let beamHarryToSecond = document.getElementById ('beamwand_harry_to_drago');
 let beamHarryToTom = document.getElementById ('beamwand_harry_to_tom');
 let beamTomToHero = document.getElementById ('beamwand_tom_to_hero');
 let beamSecondToHero = document.getElementById ('beamwand_drago_to_hero');
+let shotTom = document.getElementById ('shottom');
+let shotSecond = document.getElementById ('shotdrago');
 
 let tomObject = {
     energy: 1,
+    fireToHarry: function () {
+        if (tomObject.energy <= 0 || harry.energy <= 0) {
+            clearInterval (tomFireToHarry);
+        };
+        beamTomToHero.style.display = 'block';
+        shotTom.play();
+        setTimeout (() => {beamTomToHero.style.display = 'none';},300);
+        if (torsoHarry.style.display !== 'block') {
+            harry.energy -= 0.1;
+            handHarry.style.opacity = harry.energy;
+        };
+    }
 };
 
 let secondEnemyObject = {
     energy: 1,
+    fireToHarry: function () {
+        if (secondEnemyObject.energy <= 0 || harry.energy <= 0) {
+            clearInterval (secondFireToHarry);
+        };
+        beamSecondToHero.style.display = 'block';
+        shotSecond.play();
+        setTimeout (() => {beamSecondToHero.style.display = 'none';},300); 
+        if (torsoHarry.style.display !== 'block') {
+            harry.energy -= 0.1;
+            handHarry.style.opacity = harry.energy;
+        };   
+    }
 };
 
 let harry = {
@@ -24,6 +50,20 @@ let harry = {
     defenseIn: function (event) {
         if (event.code === 'Space') {
         torsoHarry.style.display = 'block';
+        };
+        if (event.code === 'ArrowRight') {
+            if (elixirSecond.style.display === 'block') {
+                harry.energy = 1;
+                elixirSecond.style.display = 'none'
+                handHarry.style.opacity = harry.energy;
+            };
+        };
+        if (event.code === 'ArrowLeft') {
+            if (elixirTom.style.display === 'block') {
+                harry.energy = 1;
+                elixirTom.style.display = 'none'
+                handHarry.style.opacity = harry.energy;
+            };
         };
     },
     defenseOut: function (event) {
@@ -69,6 +109,9 @@ let harry = {
         };
     }
 };
+
+let tomFireToHarry = setInterval (tomObject.fireToHarry,3500);
+let secondFireToHarry = setInterval (secondEnemyObject.fireToHarry,4500);
 
 document.addEventListener ('keydown',harry.defenseIn);
 document.addEventListener ('keyup',harry.defenseOut);
