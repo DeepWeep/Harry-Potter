@@ -79,6 +79,67 @@ let secondEnemyObject = {
     }
 };
 
+let witchcraftHarry = function (event) {
+    document.getElementById ('shotharry').play ();
+    if (event.button === 0) {
+        beamHarryToTom.style.display = 'block';
+        tomObject.energy -= 0.25;
+        if (tomObject.energy > 0) {
+            document.getElementById ('woundtom').play ();
+        };
+        enemyTom.style.opacity = tomObject.energy;
+        if (tomObject.energy === 0) {
+            document.getElementById ('deadtom').play ();
+            elixirTom.style.display = 'block';
+        };
+    };
+    if (event.button === 2) {
+        beamHarryToSecond.style.display = 'block';
+        secondEnemyObject.energy -= 0.25;
+        if (secondEnemyObject.energy > 0) {
+            document.getElementById ('wounddrago').play ();
+        };
+        enemiesSecond.style.opacity = secondEnemyObject.energy;
+        if (secondEnemyObject.energy === 0) {
+            document.getElementById ('deaddrago').play ();
+            elixirSecond.style.display = 'block';
+        };
+    };
+    if (event.button === 1 && harry.doubleBeam === 1) {
+        harry.doubleBeam = 0;
+        beamHarryToTom.style.display = 'block';
+        tomObject.energy -= 0.25;
+        beamHarryToSecond.style.display = 'block';
+        secondEnemyObject.energy -= 0.25;
+        if (secondEnemyObject.energy > 0) {
+            document.getElementById ('wounddrago').play ();
+        };
+        enemiesSecond.style.opacity = secondEnemyObject.energy;
+        if (secondEnemyObject.energy === 0) {
+            document.getElementById ('deaddrago').play ();
+            elixirSecond.style.display = 'block';
+        };
+        if (tomObject.energy > 0) {
+            document.getElementById ('woundtom').play ();
+        };
+        enemyTom.style.opacity = tomObject.energy;
+        if (tomObject.energy === 0) {
+            document.getElementById ('deadtom').play ();
+            elixirTom.style.display = 'block';
+        };
+    };
+    if (tomObject.energy <= 0 && secondEnemyObject.energy <= 0) {
+        clearInterval (tomFireToHarry);
+            clearInterval (secondFireToHarry);
+            transition.style.display = 'block';
+            toNextRound.style.display = 'block';
+            winButton.style.display = 'block';
+            firstAudio.pause ();
+            transitionAudio.play ();
+            transitionAudio.loop ();
+    }; 
+};
+
 let harry = {
     energy: 1,
     doubleBeam: 1,
@@ -107,64 +168,7 @@ let harry = {
         };
     },
     fireIn: function (event) {
-        document.getElementById ('shotharry').play ();
-        if (event.button === 0) {
-            beamHarryToTom.style.display = 'block';
-            tomObject.energy -= 0.25;
-            if (tomObject.energy > 0) {
-                document.getElementById ('woundtom').play ();
-            };
-            enemyTom.style.opacity = tomObject.energy;
-            if (tomObject.energy === 0) {
-                document.getElementById ('deadtom').play ();
-                elixirTom.style.display = 'block';
-            };
-        };
-        if (event.button === 2) {
-            beamHarryToSecond.style.display = 'block';
-            secondEnemyObject.energy -= 0.25;
-            if (secondEnemyObject.energy > 0) {
-                document.getElementById ('wounddrago').play ();
-            };
-            enemiesSecond.style.opacity = secondEnemyObject.energy;
-            if (secondEnemyObject.energy === 0) {
-                document.getElementById ('deaddrago').play ();
-                elixirSecond.style.display = 'block';
-            };
-        };
-        if (event.button === 1 && harry.doubleBeam === 1) {
-            harry.doubleBeam = 0;
-            beamHarryToTom.style.display = 'block';
-            tomObject.energy -= 0.25;
-            beamHarryToSecond.style.display = 'block';
-            secondEnemyObject.energy -= 0.25;
-            if (secondEnemyObject.energy > 0) {
-                document.getElementById ('wounddrago').play ();
-            };
-            enemiesSecond.style.opacity = secondEnemyObject.energy;
-            if (secondEnemyObject.energy === 0) {
-                document.getElementById ('deaddrago').play ();
-                elixirSecond.style.display = 'block';
-            };
-            if (tomObject.energy > 0) {
-                document.getElementById ('woundtom').play ();
-            };
-            enemyTom.style.opacity = tomObject.energy;
-            if (tomObject.energy === 0) {
-                document.getElementById ('deadtom').play ();
-                elixirTom.style.display = 'block';
-            };
-        };
-        if (tomObject.energy <= 0 && secondEnemyObject.energy <= 0) {
-            clearInterval (tomFireToHarry);
-                clearInterval (secondFireToHarry);
-                transition.style.display = 'block';
-                toNextRound.style.display = 'block';
-                winButton.style.display = 'block';
-                firstAudio.pause ();
-                transitionAudio.play ();
-                transitionAudio.loop ();
-        };
+        witchcraftHarry (event);
     },
     fireOut: function (event) {
         if (event.button === 0) {
