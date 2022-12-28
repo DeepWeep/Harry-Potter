@@ -19,6 +19,8 @@
     <audio src="/audio/shot_drago.mp3" id="shotdrago"></audio>
     <audio src="/audio/wound_drago.mp3" id="wounddrago"></audio>
     <audio src="/audio/shot_harry.mp3" id="shotharry"></audio>
+    <audio src="/audio/doom_harry.mp3" id="deadharry"></audio>
+    <audio src="/audio/wound_harry.mp3" id="woundharry"></audio>
     <div class='potion' id="potion_tom"></div>
     <div class='potion' id="potion_drago"></div>
     <div class='enemies' id="tom"></div>
@@ -37,6 +39,15 @@
     <svg id="beamwand_drago_to_hero" viewBox="0 0 130 180">
         <polygon points="125,-30 130,-30 70,400" stroke="darkred" fill="darkred" />
     </svg> 
+    <div id="transition">
+        <div class="lose_or_win" id="lose">YOU LOSE!</div>
+        <div class="lose_or_win" id="win">YOU WIN!</div>
+        <button class="transition_button transition_button_left"></button>
+        <button class="transition_button transition_button_right"></button>
+        <button class="transition_button transition_button_left"></button>
+        <button class="transition_button transition_button_right"></button>
+        <div id="owl"></div>
+    </div>
 </body>
 
 </html>

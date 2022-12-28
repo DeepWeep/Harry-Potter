@@ -12,6 +12,8 @@ let beamTomToHero = document.getElementById ('beamwand_tom_to_hero');
 let beamSecondToHero = document.getElementById ('beamwand_drago_to_hero');
 let shotTom = document.getElementById ('shottom');
 let shotSecond = document.getElementById ('shotdrago');
+let deadHarry = document.getElementById ('deadharry');
+let woundHarry = document.getElementById ('woundharry');
 
 let tomObject = {
     energy: 1,
@@ -23,6 +25,7 @@ let tomObject = {
         shotTom.play();
         setTimeout (() => {beamTomToHero.style.display = 'none';},300);
         if (torsoHarry.style.display !== 'block') {
+            woundHarry.play ();
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
         };
@@ -39,6 +42,7 @@ let secondEnemyObject = {
         shotSecond.play();
         setTimeout (() => {beamSecondToHero.style.display = 'none';},300); 
         if (torsoHarry.style.display !== 'block') {
+            woundHarry.play ();
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
         };   

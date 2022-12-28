@@ -106,3 +106,17 @@ body {
     height: 29vh;
     display: none;
 }
+
+#transition {
+    position: absolute;
+    width: 96%;
+    height: 96%;
+    border-left: 2vw;
+    border-right: 2vw;
+    border-bottom: 2vh;
+    border-top: 2vh;
+    border-color: brown;
+    border-style: ridge;
+    background-image: url(/imgs/between_round.jpg);
+    background-size: 100% 100%;
+}
