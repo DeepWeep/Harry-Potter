@@ -23,6 +23,17 @@ let toNextRound = document.getElementById ('to_next_round');
 let restartRound = document.getElementById ('restart_round');
 let owl = document.getElementById ('owl');
 
+if (localStorage.getItem ('deadEnemies') === null) {
+    localStorage.setItem ('deadEnemies',0);
+};
+
+if (localStorage.getItem ('deadHero') === null) {
+    localStorage.setItem ('deadHero',0);
+};
+
+//   localStorage.setItem ('deadEnemies',(localStorage.getItem ('deadEnemies') + 1));    ;
+//   localStorage.setItem ('deadHero',(localStorage.getItem ('deadHero') + 1));
+
 let tomObject = {
     energy: 1,
     fireToHarry: function () {
@@ -37,6 +48,7 @@ let tomObject = {
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
             if (harry.energy <= 0) {
+                localStorage.deadHero += 1;
                 deadHarry.play ();
                 clearInterval (tomFireToHarry);
                 clearInterval (secondFireToHarry);
@@ -65,6 +77,7 @@ let secondEnemyObject = {
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
             if (harry.energy <= 0) {
+                localStorage.deadHero += 1;
                 deadHarry.play ();
                 clearInterval (tomFireToHarry);
                 clearInterval (secondFireToHarry);
@@ -73,7 +86,7 @@ let secondEnemyObject = {
                 loseButton.style.display = 'block';
                 firstAudio.pause ();
                 transitionAudio.play ();
-                transitionAudio.loop ();
+                transitionAudio.loop;
             }
         };   
     }
@@ -116,6 +129,7 @@ let witchcraftHarry = function (event) {
         };
         enemiesSecond.style.opacity = secondEnemyObject.energy;
         if (secondEnemyObject.energy === 0) {
+            localStorage.deadEnemies += 1;
             document.getElementById ('deaddrago').play ();
             elixirSecond.style.display = 'block';
         };
@@ -124,6 +138,7 @@ let witchcraftHarry = function (event) {
         };
         enemyTom.style.opacity = tomObject.energy;
         if (tomObject.energy === 0) {
+            localStorage.deadEnemies += 1;
             document.getElementById ('deadtom').play ();
             elixirTom.style.display = 'block';
         };
@@ -136,7 +151,7 @@ let witchcraftHarry = function (event) {
             winButton.style.display = 'block';
             firstAudio.pause ();
             transitionAudio.play ();
-            transitionAudio.loop ();
+            transitionAudio.loop;
     }; 
 };
 
@@ -183,6 +198,8 @@ let harry = {
         };
     }
 };
+
+console.log (localStorage.deadHero);
 
 let tomFireToHarry = setInterval (tomObject.fireToHarry,3500);
 let secondFireToHarry = setInterval (secondEnemyObject.fireToHarry,4500);
