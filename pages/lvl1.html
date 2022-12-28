@@ -42,10 +42,9 @@
     <div id="transition">
         <div class="lose_or_win" id="lose">YOU LOSE!</div>
         <div class="lose_or_win" id="win">YOU WIN!</div>
-        <button class="transition_button transition_button_left"></button>
-        <button class="transition_button transition_button_right"></button>
-        <button class="transition_button transition_button_left"></button>
-        <button class="transition_button transition_button_right"></button>
+        <button class="transition_button" id="to_next_round" onclick="document.location='./lvl2.html'">Next Level</button>
+        <button class="transition_button" id="restart_round" onclick="document.location='./lvl1.html'">Restart</button>
+        <button class="transition_button" id="back_to_start_game" onclick="document.location='../game.html'">Begin</button>
         <div id="owl"></div>
     </div>
 </body>

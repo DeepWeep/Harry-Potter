@@ -14,6 +14,12 @@ let shotTom = document.getElementById ('shottom');
 let shotSecond = document.getElementById ('shotdrago');
 let deadHarry = document.getElementById ('deadharry');
 let woundHarry = document.getElementById ('woundharry');
+let transition = document.getElementById ('transition');
+let loseButton = document.getElementById ('lose');
+let winButton = document.getElementById ('win');
+let toNextRound = document.getElementById ('to_next_round');
+let restartRound = document.getElementById ('restart_round');
+let owl = document.getElementById ('owl');
 
 let tomObject = {
     energy: 1,
