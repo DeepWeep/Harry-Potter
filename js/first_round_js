@@ -45,7 +45,7 @@ let tomObject = {
                 loseButton.style.display = 'block';
                 firstAudio.pause ();
                 transitionAudio.play ();
-                transitionAudio.loop ()
+                transitionAudio.loop ();
             }
         };
     }
@@ -73,7 +73,7 @@ let secondEnemyObject = {
                 loseButton.style.display = 'block';
                 firstAudio.pause ();
                 transitionAudio.play ();
-                transitionAudio.loop ()
+                transitionAudio.loop ();
             }
         };   
     }
@@ -81,6 +81,7 @@ let secondEnemyObject = {
 
 let harry = {
     energy: 1,
+    doubleBeam: 1,
     defenseIn: function (event) {
         if (event.code === 'Space') {
         torsoHarry.style.display = 'block';
@@ -106,7 +107,6 @@ let harry = {
         };
     },
     fireIn: function (event) {
-        event.preventDefault ();
         document.getElementById ('shotharry').play ();
         if (event.button === 0) {
             beamHarryToTom.style.display = 'block';
@@ -132,14 +132,50 @@ let harry = {
                 elixirSecond.style.display = 'block';
             };
         };
+        if (event.button === 1 && harry.doubleBeam === 1) {
+            harry.doubleBeam = 0;
+            beamHarryToTom.style.display = 'block';
+            tomObject.energy -= 0.25;
+            beamHarryToSecond.style.display = 'block';
+            secondEnemyObject.energy -= 0.25;
+            if (secondEnemyObject.energy > 0) {
+                document.getElementById ('wounddrago').play ();
+            };
+            enemiesSecond.style.opacity = secondEnemyObject.energy;
+            if (secondEnemyObject.energy === 0) {
+                document.getElementById ('deaddrago').play ();
+                elixirSecond.style.display = 'block';
+            };
+            if (tomObject.energy > 0) {
+                document.getElementById ('woundtom').play ();
+            };
+            enemyTom.style.opacity = tomObject.energy;
+            if (tomObject.energy === 0) {
+                document.getElementById ('deadtom').play ();
+                elixirTom.style.display = 'block';
+            };
+        };
+        if (tomObject.energy <= 0 && secondEnemyObject.energy <= 0) {
+            clearInterval (tomFireToHarry);
+                clearInterval (secondFireToHarry);
+                transition.style.display = 'block';
+                toNextRound.style.display = 'block';
+                winButton.style.display = 'block';
+                firstAudio.pause ();
+                transitionAudio.play ();
+                transitionAudio.loop ();
+        };
     },
     fireOut: function (event) {
-        event.preventDefault (); 
         if (event.button === 0) {
             beamHarryToTom.style.display = 'none';
         };
         if (event.button === 2) {
             beamHarryToSecond.style.display = 'none';
+        };
+        if (event.button === 1) {
+            beamHarryToSecond.style.display = 'none';
+            beamHarryToTom.style.display = 'none';
         };
     }
 };
@@ -151,4 +187,4 @@ document.addEventListener ('keydown',harry.defenseIn);
 document.addEventListener ('keyup',harry.defenseOut);
 document.addEventListener ('mousedown',harry.fireIn);
 document.addEventListener ('mouseup',harry.fireOut);
-
+document.addEventListener ('contextmenu', (event) => {event.preventDefault ()});

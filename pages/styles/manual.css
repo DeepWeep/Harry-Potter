@@ -12,7 +12,7 @@ body {
 
 #key_and_action {
     width: 90%;
-    height: 20%;
+    height: 15%;
     padding-left: 10vw;
     font-size: 50px;
     font-weight: bolder;
@@ -43,7 +43,7 @@ body {
 #back_to_start {
     width: 10vw;
     height: 20vh;
-    margin-top: 5vh;
+    margin-top: 1vh;
     margin-left: 45vw;
     border: none;
     background-color: #66666600;
