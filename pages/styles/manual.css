@@ -22,9 +22,9 @@ body {
 
 .control_list {
     width: 90%;
-    height: 10%;
+    height: 8%;
     padding-left: 10vw;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
     color: gold;
     display: flex;

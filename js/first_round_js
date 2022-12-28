@@ -1,6 +1,9 @@
 'use strict';
 
 let firstAudio = document.getElementById ('first_audio');
+let voiceHarry = document.getElementById ('voice_harry');
+let voiceTom = document.getElementById ('voice_tom');
+let voiceDrag = document.getElementById ('voice_drago');
 let transitionAudio = document.getElementById ('transition_audio');
 let handHarry = document.getElementById ('hand');
 let torsoHarry = document.getElementById ('hero');
@@ -31,8 +34,6 @@ if (localStorage.deadEnemies === undefined) {
     localStorage.setItem ('deadEnemies',0);
 };
 
-console.log (localStorage.deadHero);
-
 let tomObject = {
     energy: 1,
     fireToHarry: function () {
@@ -59,6 +60,9 @@ let tomObject = {
                 transitionAudio.loop ();
             }
         };
+    },
+    myVoice: function () {
+        setTimeout (() => {voiceTom.play()},2500)
     }
 };
 
@@ -88,8 +92,13 @@ let secondEnemyObject = {
                 transitionAudio.loop;
             }
         };   
+    },
+    myVoice: function () {
+        setTimeout (() => {voiceDrag.play()},1250)
     }
 };
+
+//Паттерн "фабрика" следует ниже
 
 let witchcraftHarry = function (event) {
     document.getElementById ('shotharry').play ();
@@ -157,6 +166,7 @@ let witchcraftHarry = function (event) {
 let harry = {
     energy: 1,
     doubleBeam: 1,
+    subscribers: [],
     defenseIn: function (event) {
         if (event.code === 'Space') {
         torsoHarry.style.display = 'block';
@@ -195,8 +205,22 @@ let harry = {
             beamHarryToSecond.style.display = 'none';
             beamHarryToTom.style.display = 'none';
         };
+    },
+    subscribe: function (newSubscribe) {
+        harry.subscribers.push (newSubscribe);
+    },
+    broadcast: function () {
+        voiceHarry.play ();
+        harry.subscribers.forEach ((sub) => {sub ()});
     }
 };
+
+//Ниже записываем заклинание для паттерна Observer
+
+harry.subscribe (secondEnemyObject.myVoice); 
+harry.subscribe (tomObject.myVoice);
+
+console.log (harry.subscribers);
 
 let tomFireToHarry = setInterval (tomObject.fireToHarry,3500);
 let secondFireToHarry = setInterval (secondEnemyObject.fireToHarry,4500);
@@ -206,3 +230,10 @@ document.addEventListener ('keyup',harry.defenseOut);
 document.addEventListener ('mousedown',harry.fireIn);
 document.addEventListener ('mouseup',harry.fireOut);
 document.addEventListener ('contextmenu', (event) => {event.preventDefault ()});
+document.addEventListener ('keydown', (event) =>  {
+    if (event.code === 'KeyV') {
+        harry.broadcast ();
+    }
+});
+
+
