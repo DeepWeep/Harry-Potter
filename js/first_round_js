@@ -1,5 +1,7 @@
 'use strict';
 
+let firstAudio = document.getElementById ('first_audio');
+let transitionAudio = document.getElementById ('transition_audio');
 let handHarry = document.getElementById ('hand');
 let torsoHarry = document.getElementById ('hero');
 let enemyTom = document.getElementById ('tom');
@@ -34,6 +36,17 @@ let tomObject = {
             woundHarry.play ();
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
+            if (harry.energy <= 0) {
+                deadHarry.play ();
+                clearInterval (tomFireToHarry);
+                clearInterval (secondFireToHarry);
+                transition.style.display = 'block';
+                restartRound.style.display = 'block';
+                loseButton.style.display = 'block';
+                firstAudio.pause ();
+                transitionAudio.play ();
+                transitionAudio.loop ()
+            }
         };
     }
 };
@@ -51,6 +64,17 @@ let secondEnemyObject = {
             woundHarry.play ();
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
+            if (harry.energy <= 0) {
+                deadHarry.play ();
+                clearInterval (tomFireToHarry);
+                clearInterval (secondFireToHarry);
+                transition.style.display = 'block';
+                restartRound.style.display = 'block';
+                loseButton.style.display = 'block';
+                firstAudio.pause ();
+                transitionAudio.play ();
+                transitionAudio.loop ()
+            }
         };   
     }
 };
@@ -125,6 +149,6 @@ let secondFireToHarry = setInterval (secondEnemyObject.fireToHarry,4500);
 
 document.addEventListener ('keydown',harry.defenseIn);
 document.addEventListener ('keyup',harry.defenseOut);
-document.body.addEventListener ('mousedown',harry.fireIn);
-document.body.addEventListener ('mouseup',harry.fireOut);
+document.addEventListener ('mousedown',harry.fireIn);
+document.addEventListener ('mouseup',harry.fireOut);
 
