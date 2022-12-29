@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style_lvl_1.css">
+    <link rel="stylesheet" href="styles/style_lvl_1.css">
     <script defer src="../js/first_round_js"></script>
     <title>Harry Potter</title>
 </head>
 
-<body class='lvl1_body'> 
+<body class='lvl1_body'>
     <audio src="/audio/first_round.mp3" autoplay loop id="first_audio"></audio>
     <audio src="/audio/between_round.mp3" id="transition_audio"></audio>
     <audio src="/audio/doom_tom.mp3" id="deadtom"></audio>
@@ -29,10 +29,10 @@
     <div class='potion' id="potion_drago"></div>
     <div class='enemies' id="tom"></div>
     <div class='enemies' id="drago"></div>
-    <div id= 'hand'></div>
-    <div id ='hero'></div>
+    <div id='hand'></div>
+    <div id='hero'></div>
     <svg id="beamwand_harry_to_drago" viewBox="0 0 100 100">
-            <polygon points="98,0 100,2 0,100" stroke="gold" fill="gold" />
+        <polygon points="98,0 100,2 0,100" stroke="gold" fill="gold" />
     </svg>
     <svg id="beamwand_harry_to_tom" viewBox="0 0 384 120">
         <polygon points="500,0 504,4 -400,150" stroke="gold" fill="gold" />
@@ -42,13 +42,15 @@
     </svg>
     <svg id="beamwand_drago_to_hero" viewBox="0 0 130 180">
         <polygon points="125,-30 130,-30 70,400" stroke="darkred" fill="darkred" />
-    </svg> 
+    </svg>
     <div id="transition">
         <div class="lose_or_win" id="lose">YOU LOSE!</div>
         <div class="lose_or_win" id="win">YOU WIN!</div>
-        <button class="transition_button" id="to_next_round" onclick="document.location='./lvl2.html'">Next Level</button>
+        <button class="transition_button" id="to_next_round" onclick="document.location='./lvl2.html'">Next
+            Level</button>
         <button class="transition_button" id="restart_round" onclick="document.location='./lvl1.html'">Restart</button>
-        <button class="transition_button" id="back_to_start_game" onclick="document.location='../game.html'">Begin</button>
+        <button class="transition_button" id="back_to_start_game"
+            onclick="document.location='../game.html'">Begin</button>
         <div id="owl"></div>
     </div>
 </body>
