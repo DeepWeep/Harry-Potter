@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style_lvl_2.css">
+    <script defer src="../js/second_round.js"></script>
+    <title>Harry Potter</title>
+</head>
+
+<body class='lvl2_body'>
+    <audio src="../audio/second_round.mp3" autoplay loop id="second_audio"></audio>
+    <audio src="../audio/between_round.mp3" id="transition_audio"></audio>
+    <audio src="../audio/doom_beatricc.mp3" id="deadbeatricc"></audio>
+    <audio src="../audio/shot_beatricc.mp3" id="shotbeatricc"></audio>
+    <audio src="../audio/wound_beatricc.mp3" id="woundbeatricc"></audio>
+    <audio src="../audio/doom_tail.mp3" id="deadtail"></audio>
+    <audio src="../audio/shot_tail.mp3" id="shottail"></audio>
+    <audio src="../audio/wound_tail.mp3" id="woundtail"></audio>
+    <audio src="../audio/shot_harry.mp3" id="shotharry"></audio>
+    <audio src="../audio/doom_harry.mp3" id="deadharry"></audio>
+    <audio src="../audio/wound_harry.mp3" id="woundharry"></audio>
+    <audio src="../audio/voice_Harry.m4a" id="voice_harry"></audio>
+    <audio src="../audio/voice_Tom.m4a" id="voice_tom"></audio>
+    <audio src="../audio/voice_Drago.m4a" id="voice_drago"></audio>
+    <div class='potion' id="potion_beatricc"></div>
+    <div class='potion' id="potion_tail"></div>
+    <div class='enemies' id="beatricc"></div>
+    <div class='enemies' id="tail"></div>
+    <div id='hand'></div>
+    <div id='hero'></div>
+    <svg id="beamwand_harry_to_tail" viewBox="0 0 100 100">
+        <polygon points="98,0 100,2 0,100" stroke="gold" fill="gold" />
+    </svg>
+    <svg id="beamwand_harry_to_beatricc" viewBox="0 0 384 120">
+        <polygon points="500,0 504,4 -400,150" stroke="gold" fill="gold" />
+    </svg>
+    <svg id="beamwand_beatricc_to_hero" viewBox="0 0 120 120">
+        <polygon points="-25,1 -24,0 120,120" stroke="red" fill="red" />
+    </svg>
+    <svg id="beamwand_tail_to_hero" viewBox="0 0 130 180">
+        <polygon points="125,-30 130,-30 70,400" stroke="darkred" fill="darkred" />
+    </svg>
+    <div id="transition">
+        <div class="lose_or_win" id="lose">YOU LOSE!</div>
+        <div class="lose_or_win" id="win">YOU WIN!</div>
+        <button class="transition_button" id="to_next_round" onclick="document.location='./lvl3.html'">Next
+            Level</button>
+        <button class="transition_button" id="restart_round" onclick="document.location='./lvl2.html'">Restart</button>
+        <button class="transition_button" id="back_to_start_game"
+            onclick="document.location='../game.html'">Begin</button>
+        <div id="owl"></div>
+    </div>
+</body>
+
+</html>
