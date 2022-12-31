@@ -104,7 +104,7 @@ let witchcraftHarry = function (event) {
     document.getElementById('shotharry').play();
     if (event.button === 0) {
         beamHarryTobeatricc.style.display = 'block';
-        beatriccObject.energy -= 0.25;
+        beatriccObject.energy -= 0.2;
         if (beatriccObject.energy > 0) {
             document.getElementById('woundbeatricc').play();
         };
@@ -116,7 +116,7 @@ let witchcraftHarry = function (event) {
     };
     if (event.button === 2) {
         beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.25;
+        secondEnemyObject.energy -= 0.2;
         if (secondEnemyObject.energy > 0) {
             document.getElementById('woundtail').play();
         };
@@ -129,9 +129,9 @@ let witchcraftHarry = function (event) {
     if (event.button === 1 && harry.doubleBeam === 1) {
         harry.doubleBeam = 0;
         beamHarryTobeatricc.style.display = 'block';
-        beatriccObject.energy -= 0.25;
+        beatriccObject.energy -= 0.2;
         beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.25;
+        secondEnemyObject.energy -= 0.2;
         if (secondEnemyObject.energy > 0) {
             document.getElementById('woundtail').play();
         };
