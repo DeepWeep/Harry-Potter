@@ -16,6 +16,7 @@ let beamHarryToSecond = document.getElementById ('beamwand_harry_to_drago');
 let beamHarryToTom = document.getElementById ('beamwand_harry_to_tom');
 let beamTomToHero = document.getElementById ('beamwand_tom_to_hero');
 let beamSecondToHero = document.getElementById ('beamwand_drago_to_hero');
+let shot_Harry = document.getElementById ('shotharry');
 let shotTom = document.getElementById ('shottom');
 let shotSecond = document.getElementById ('shotdrago');
 let deadHarry = document.getElementById ('deadharry');
@@ -111,7 +112,8 @@ let secondEnemyObject = {
 //Паттерн "фабрика" следует ниже
 
 let witchcraftHarry = function (event) {
-    document.getElementById ('shotharry').play ();
+    if (torsoHarry.style.display !== 'block') {
+    shot_Harry.play ();
     if (event.button === 0) {
         beamHarryToTom.style.display = 'block';
         tomObject.energy -= 0.25;
@@ -171,6 +173,7 @@ let witchcraftHarry = function (event) {
             transitionAudio.play ();
             transitionAudio.loop;
     }; 
+};
 };
 
 let harry = {

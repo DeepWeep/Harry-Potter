@@ -110,6 +110,7 @@ let secondEnemyObject = {
 //Паттерн "фабрика" следует ниже
 
 let witchcraftHarry = function (event) {
+    if (torsoHarry.style.display !== 'block') {
     document.getElementById('shotharry').play();
     if (event.button === 0) {
         beamHarryTobeatricc.style.display = 'block';
@@ -170,6 +171,7 @@ let witchcraftHarry = function (event) {
         transitionAudio.play();
         transitionAudio.loop;
     };
+};
 };
 
 let harry = {
