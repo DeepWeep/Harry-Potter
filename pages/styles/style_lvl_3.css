@@ -111,3 +111,70 @@ body {
     left: 57vw;
     top: 46vh;
 }
+
+#transition {
+    position: absolute;
+    width: 96%;
+    height: 96%;
+    border-left: 2vw;
+    border-right: 2vw;
+    border-bottom: 2vh;
+    border-top: 2vh;
+    border-color: brown;
+    border-style: ridge;
+    background-image: url(../../imgs/between_round.jpg);
+    background-size: 100% 100%;
+    display: none;
+}
+
+#lose {
+    position: absolute;
+    top: 20vh;
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    color: gold;
+    font-size: 100px;
+}
+
+.transition_button {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 60vh;
+    font-size: 40px;
+    color: gold;
+    border: 2px solid gold;
+    background-color: transparent;
+    border-radius: 25%;
+}
+
+#restart_round {
+    left: 20vw;
+}
+
+#back_to_start_game {
+    right: 20vw;
+}
+
+#owl {
+    position: absolute;
+    left: -200px;
+    width: 200px;
+    height: 150px;
+    background-image: url(../../imgs/own_between_round.png);
+    background-size: 100% 100%;
+    animation: owlFly 7s linear infinite;
+}
+
+@keyframes owlFly {
+    0% {
+        left: -200px;
+        top: 0;
+    }
+
+    100% {
+        left: 100vw;
+        top: 40vh;
+    }
+}
