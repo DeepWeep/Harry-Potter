@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style_lvl_3.css">
+    <script defer src="../js/third_round.js"></script>
+    <title>Harry Potter</title>
+</head>
+
+<body class='lvl3_body'>
+    <audio src="../audio/third_round.mp3" autoplay loop id="third_audio"></audio>
+    <audio src="../audio/doom_voland.mp3" id="deadvoland"></audio>
+    <audio src="../audio/shot_voland.mp3" id="shotvoland"></audio>
+    <audio src="../audio/wound_voland.mp3" id="woundvoland"></audio>
+    <audio src="../audio/shot_harry.mp3" id="shotharry"></audio>
+    <audio src="../audio/doom_harry.mp3" id="deadharry"></audio>
+    <audio src="../audio/wound_harry.mp3" id="woundharry"></audio>
+    <audio src="../audio/voice_Tom.m4a" id="voice_harry_to_voland"></audio>
+    <audio src="../audio/voice_Drago.m4a" id="voice_voland_to_harry"></audio>
+    <div id="voland"></div>
+    <div id='hand'></div>
+    <div id='hero'></div>
+    <svg id="beamwand_harry_to_right" viewBox="0 0 100 100">
+        <polygon points="98,0 100,2 0,100" stroke="gold" fill="gold" />
+    </svg>
+    <svg id="beamwand_harry_to_left" viewBox="0 0 384 120">
+        <polygon points="500,0 504,4 -400,150" stroke="gold" fill="gold" />
+    </svg>
+    <svg id="beamwand_left_to_hero" viewBox="0 0 120 120">
+        <polygon points="-25,1 -24,0 120,120" stroke="red" fill="red" />
+    </svg>
+    <svg id="beamwand_right_to_hero" viewBox="0 0 130 180">
+        <polygon points="125,-30 130,-30 70,400" stroke="darkred" fill="darkred" />
+    </svg>
+    <div class="speak" id="speak_Harry">-!-</div>
+    <div class="speak" id="speak_left">-!-</div>
+    <div class="speak" id="speak_right">-!-</div>
+</body>
+
+</html>

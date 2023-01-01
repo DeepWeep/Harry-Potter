@@ -41,6 +41,7 @@ let tomObject = {
     fireToHarry: function () {
         if (tomObject.energy <= 0 || harry.energy <= 0) {
             clearInterval (tomFireToHarry);
+            return;
         };
         beamTomToHero.style.display = 'block';
         shotTom.play();
@@ -78,6 +79,7 @@ let secondEnemyObject = {
     fireToHarry: function () {
         if (secondEnemyObject.energy <= 0 || harry.energy <= 0) {
             clearInterval (secondFireToHarry);
+            return;
         };
         beamSecondToHero.style.display = 'block';
         shotSecond.play();

@@ -40,6 +40,7 @@ let beatriccObject = {
     fireToHarry: function () {
         if (beatriccObject.energy <= 0 || harry.energy <= 0) {
             clearInterval(beatriccFireToHarry);
+            return;
         };
         beambeatriccToHero.style.display = 'block';
         shotbeatricc.play();
@@ -76,6 +77,7 @@ let secondEnemyObject = {
     fireToHarry: function () {
         if (secondEnemyObject.energy <= 0 || harry.energy <= 0) {
             clearInterval(secondFireToHarry);
+            return;
         };
         beamSecondToHero.style.display = 'block';
         shotSecond.play();

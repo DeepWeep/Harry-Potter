@@ -1,0 +1,120 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    background-size: 100% 100%;
+    overflow: hidden;
+    background-image: url(../../imgs/third_round.jpg);
+}
+
+#voland {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30%;
+    margin: auto;
+    top: 50vh;
+    opacity: 1;
+    left: 15vw;
+    background-image: url(../../imgs/vol_de_mort.png);
+    height: 40%;
+    animation: mainEnemy 8s step-end infinite;
+}
+
+@keyframes mainEnemy {
+    0% {
+        left: 15vw;
+    }
+
+    50% {
+        left: 50vw;
+    }
+
+    100% {
+        left: 15vw;
+    }
+}
+
+#hand {
+    position: absolute;
+    top: 42%;
+    left: 62%;
+    background-image: url(../../imgs/hand_play.png);
+    width: 38%;
+    height: 58%;
+    background-size: 100% 100%;
+}
+
+#hero {
+    position: fixed;
+    bottom: -7vh;
+    left: 30%;
+    width: 40%;
+    height: 10vh;
+    border: 5px gold solid;
+    border-radius: 50%;
+    display: none;
+}
+
+#beamwand_harry_to_right {
+    position: absolute;
+    top: 57vh;
+    left: 57vw;
+    width: 13vw;
+    height: 13vh;
+    display: none;
+}
+
+#beamwand_harry_to_left {
+    position: absolute;
+    top: 57vh;
+    left: 15vw;
+    width: 60vw;
+    height: 15vh;
+    display: none;
+}
+
+#beamwand_left_to_hero {
+    position: absolute;
+    top: 57vh;
+    left: 17.5vw;
+    width: 40vw;
+    height: 42vh;
+    display: none;
+}
+
+#beamwand_right_to_hero {
+    position: absolute;
+    top: 70vh;
+    left: 45vw;
+    width: 10vw;
+    height: 29vh;
+    display: none;
+}
+
+.speak {
+    position: absolute;
+    width: 2vw;
+    height: 3vh;
+    font-weight: 900;
+    font-size: 25px;
+    color: chartreuse;
+    text-align: center;
+    display: none;
+}
+
+#speak_Harry {
+    left: 49.1vw;
+    bottom: 1vh;
+}
+
+#speak_left {
+    left: 21vw;
+    top: 47vh;
+}
+
+#speak_right {
+    left: 60vw;
+    top: 46vh;
+}
