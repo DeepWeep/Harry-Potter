@@ -9,6 +9,7 @@ let handHarry = document.getElementById('hand');
 let torsoHarry = document.getElementById('hero');
 let enemybeatricc = document.getElementById('beatricc');
 let enemiesSecond = document.getElementById('tail');
+let speak = document.getElementsByClassName ('speak');
 let elixirbeatricc = document.getElementById('potion_beatricc');
 let elixirSecond = document.getElementById('potion_tail');
 let beamHarryToSecond = document.getElementById('beamwand_harry_to_tail');
@@ -62,7 +63,11 @@ let beatriccObject = {
         };
     },
     myVoice: function () {
-        setTimeout(() => { voicebeatricc.play() }, 2500)
+        setTimeout(() => {
+            voicebeatricc.play();
+            speak[1].style.display = 'block';
+            setTimeout (() => {speak[1].style.display = 'none';},1200); 
+            }, 2500)
     }
 };
 
@@ -94,7 +99,11 @@ let secondEnemyObject = {
         };
     },
     myVoice: function () {
-        setTimeout(() => { voiceDrag.play() }, 1250)
+        setTimeout(() => {
+            voiceDrag.play();
+            speak[2].style.display = 'block';
+            setTimeout (() => {speak[2].style.display = 'none';},1200); 
+            }, 1250)
     }
 };
 
@@ -104,7 +113,7 @@ let witchcraftHarry = function (event) {
     document.getElementById('shotharry').play();
     if (event.button === 0) {
         beamHarryTobeatricc.style.display = 'block';
-        beatriccObject.energy -= 0.2;
+        beatriccObject.energy -= 0.125;
         if (beatriccObject.energy > 0) {
             document.getElementById('woundbeatricc').play();
         };
@@ -116,7 +125,7 @@ let witchcraftHarry = function (event) {
     };
     if (event.button === 2) {
         beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.2;
+        secondEnemyObject.energy -= 0.125;
         if (secondEnemyObject.energy > 0) {
             document.getElementById('woundtail').play();
         };
@@ -129,9 +138,9 @@ let witchcraftHarry = function (event) {
     if (event.button === 1 && harry.doubleBeam === 1) {
         harry.doubleBeam = 0;
         beamHarryTobeatricc.style.display = 'block';
-        beatriccObject.energy -= 0.2;
+        beatriccObject.energy -= 0.125;
         beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.2;
+        secondEnemyObject.energy -= 0.125;
         if (secondEnemyObject.energy > 0) {
             document.getElementById('woundtail').play();
         };
@@ -211,6 +220,8 @@ let harry = {
     },
     broadcast: function () {
         voiceHarry.play();
+        speak[0].style.display = 'block';
+        setTimeout (() => {speak[0].style.display = 'none';},1200);
         harry.subscribers.forEach((sub) => { sub() });
     }
 };
@@ -219,8 +230,6 @@ let harry = {
 
 harry.subscribe(secondEnemyObject.myVoice);
 harry.subscribe(beatriccObject.myVoice);
-
-console.log(harry.subscribers);
 
 let beatriccFireToHarry = setInterval(beatriccObject.fireToHarry, 3500);
 let secondFireToHarry = setInterval(secondEnemyObject.fireToHarry, 4500);

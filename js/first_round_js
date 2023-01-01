@@ -9,6 +9,7 @@ let handHarry = document.getElementById ('hand');
 let torsoHarry = document.getElementById ('hero');
 let enemyTom = document.getElementById ('tom');
 let enemiesSecond = document.getElementById ('drago');
+let speak = document.getElementsByClassName ('speak');
 let elixirTom = document.getElementById ('potion_tom');
 let elixirSecond = document.getElementById ('potion_drago');
 let beamHarryToSecond = document.getElementById ('beamwand_harry_to_drago');
@@ -62,7 +63,12 @@ let tomObject = {
         };
     },
     myVoice: function () {
-        setTimeout (() => {voiceTom.play()},2500)
+        setTimeout (() => {
+            voiceTom.play()
+            speak[1].style.display = 'block';
+            setTimeout (() => {speak[1].style.display = 'none';},1200);
+        },2500)
+
     }
 };
 
@@ -94,7 +100,11 @@ let secondEnemyObject = {
         };   
     },
     myVoice: function () {
-        setTimeout (() => {voiceDrag.play()},1250)
+        setTimeout (() => {
+            voiceDrag.play()
+            speak[2].style.display = 'block';
+            setTimeout (() => {speak[2].style.display = 'none';},1200);
+        },1250)
     }
 };
 
@@ -211,6 +221,8 @@ let harry = {
     },
     broadcast: function () {
         voiceHarry.play ();
+        speak[0].style.display = 'block';
+        setTimeout (() => {speak[0].style.display = 'none';},1200);
         harry.subscribers.forEach ((sub) => {sub ()});
     }
 };
@@ -219,8 +231,6 @@ let harry = {
 
 harry.subscribe (secondEnemyObject.myVoice); 
 harry.subscribe (tomObject.myVoice);
-
-console.log (harry.subscribers);
 
 let tomFireToHarry = setInterval (tomObject.fireToHarry,3500);
 let secondFireToHarry = setInterval (secondEnemyObject.fireToHarry,4500);

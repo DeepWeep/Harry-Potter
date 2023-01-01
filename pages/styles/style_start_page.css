@@ -10,6 +10,21 @@ body {
     background-repeat: no-repeat;
 }
 
+#prestart {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    border-top: 2vh;
+    border-left: 2vw;
+    border-bottom: 2vh;
+    border-right: 2vw;
+    font-size: 50px;
+    color: beige;
+    font-weight: 500;
+    background-image: url(/imgs/between_round.jpg);
+    background-size: 100% 100%;
+}
+
 #title_game {
     height: 20vh;
     width: 100%;

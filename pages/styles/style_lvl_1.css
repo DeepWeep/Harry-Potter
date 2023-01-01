@@ -107,6 +107,32 @@ body {
     display: none;
 }
 
+.speak {
+    position: absolute;
+    width: 2vw;
+    height: 3vh;
+    font-weight: 900;
+    font-size: 25px;
+    color: chartreuse;
+    text-align: center;
+    display: none;
+}
+
+#speak_Harry {
+    left: 49.1vw;
+    bottom: 1vh;
+}
+
+#speak_Tom {
+    left: 21vw;
+    top: 47vh;
+}
+
+#speak_Drago {
+    left: 60vw;
+    top: 46vh;
+}
+
 #transition {
     position: absolute;
     width: 96%;
