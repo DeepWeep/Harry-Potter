@@ -6,6 +6,7 @@ let voiceVoland = document.getElementById ('voice_voland_to_harry');
 let handHarry = document.getElementById ('hand');
 let torsoHarry = document.getElementById ('hero');
 let voland = document.getElementById ('voland');
+let volandSecond = document.getElementById ('voland_2');
 let speak = document.getElementsByClassName ('speak');
 let beamHarryToRight = document.getElementById ('beamwand_harry_to_right');
 let beamHarryToLeft = document.getElementById ('beamwand_harry_to_left');
@@ -29,13 +30,50 @@ if (localStorage.deadEnemies === undefined) {
 let volandObject = {
     energy: 1,
     fireToHarry: function () {
-        if (tomObject.energy <= 0 || harry.energy <= 0) {
-            clearInterval (tomFireToHarry);
+        voland.style.display = 'block';
+    setTimeout (() => {
+        if (voland.energy <= 0 || harry.energy <= 0) {
+            clearInterval (volandDynamic);
             return;
         };
-        beamTomToHero.style.display = 'block';
-        shotTom.play();
-        setTimeout (() => {beamTomToHero.style.display = 'none';},300);
+        beamLeftToHero.style.display = 'block';
+        setTimeout (() => {beamLeftToHero.style.display = 'none'},300);
+    },1500);
+    shotVoland.play();
+    if (torsoHarry.style.display !== 'block') {
+        woundHarry.play ();
+        harry.energy -= 0.1;
+        handHarry.style.opacity = harry.energy;
+        if (harry.energy <= 0) {
+            localStorage.deadHero = Number (localStorage.deadHero)+ 1;
+            deadHarry.play ();
+            clearInterval (volandDynamic);
+        }
+    };
+    setTimeout (() => {
+        voland.style.display = 'none';
+        volandSecond.style.display = 'block';
+    },3000);
+    setTimeout (() => {
+        beamRightToHero.style.display = 'block';
+        setTimeout (() => {beamRightToHero.style.display = 'none'},300);
+    },4500);
+    setTimeout (() => {
+        volandSecond.style.display = 'none';
+    },6000);
+        /*if (voland.energy <= 0 || harry.energy <= 0) {
+            clearInterval (fireToHarry);
+            return;
+        };
+        if (voland.style.left === '15vw') {
+            beamLeftToHero.style.display = 'block';
+            setTimeout (() => {beamLeftToHero.style.display = 'none';},300);
+            }
+        else {
+            beamRightToHero.style.display = 'block';
+            setTimeout (() => {beamRightToHero.style.display = 'none';},300); 
+        };
+        shotVoland.play();
         if (torsoHarry.style.display !== 'block') {
             woundHarry.play ();
             harry.energy -= 0.1;
@@ -43,23 +81,22 @@ let volandObject = {
             if (harry.energy <= 0) {
                 localStorage.deadHero = Number (localStorage.deadHero)+ 1;
                 deadHarry.play ();
-                clearInterval (tomFireToHarry);
-                clearInterval (secondFireToHarry);
-                transition.style.display = 'block';
-                restartRound.style.display = 'block';
-                loseButton.style.display = 'block';
-                firstAudio.pause ();
-                transitionAudio.play ();
-                transitionAudio.loop ();
+                clearInterval (fireToHarry);
             }
-        };
+        };*/
     },
     myVoice: function () {
         setTimeout (() => {
-            voiceTom.play()
-            speak[1].style.display = 'block';
-            setTimeout (() => {speak[1].style.display = 'none';},1200);
-        },2500)
+            voiceVoland.play()
+            if (voland.style.display === 'block') {
+                speak[1].style.display = 'block';
+                setTimeout (() => {speak[1].style.display = 'none';},1500);
+            };
+            if (voland_2.style.display === 'block') {
+                speak[2].style.display = 'block';
+                setTimeout (() => {speak[2].style.display = 'none';},1500);
+            };
+        },1000)
 
     }
 };
@@ -180,18 +217,16 @@ let harry = {
     broadcast: function () {
         voiceHarry.play ();
         speak[0].style.display = 'block';
-        setTimeout (() => {speak[0].style.display = 'none';},1200);
+        setTimeout (() => {speak[0].style.display = 'none';},800);
         harry.subscribers.forEach ((sub) => {sub ()});
     }
 };
 
 //Ниже записываем заклинание для паттерна Observer
 
-harry.subscribe (secondEnemyObject.myVoice); 
-harry.subscribe (tomObject.myVoice);
+harry.subscribe (volandObject.myVoice); 
 
-let tomFireToHarry = setInterval (tomObject.fireToHarry,3500);
-let secondFireToHarry = setInterval (secondEnemyObject.fireToHarry,4500);
+let volandDynamic = setInterval (volandObject.fireToHarry,6000);
 
 document.addEventListener ('keydown',harry.defenseIn);
 document.addEventListener ('keyup',harry.defenseOut);
