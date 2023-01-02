@@ -162,6 +162,7 @@ setTimeout (() => {
         harry.energy -= 0.1;
         handHarry.style.opacity = harry.energy;
         if (harry.energy <= 0) {
+            volandObject.energy = 1; 
             localStorage.deadHero = Number (localStorage.deadHero)+ 1;
             deadHarry.play ();
             clearInterval (volandDynamic);
@@ -185,6 +186,7 @@ setTimeout (() => {
         harry.energy -= 0.1;
         handHarry.style.opacity = harry.energy;
         if (harry.energy <= 0) {
+            volandObject.energy = 1;
             localStorage.deadHero = Number (localStorage.deadHero)+ 1;
             deadHarry.play ();
             clearInterval (volandDynamic);
@@ -212,6 +214,7 @@ setTimeout (() => {
         harry.energy -= 0.1;
         handHarry.style.opacity = harry.energy;
         if (harry.energy <= 0) {
+            volandObject.energy = 1;
             localStorage.deadHero = Number (localStorage.deadHero)+ 1;
             deadHarry.play ();
             clearInterval (volandDynamic);
@@ -235,6 +238,7 @@ if (volandObject.energy < 0.54) {
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
             if (harry.energy <= 0) {
+                volandObject.energy = 1;
                 localStorage.deadHero = Number (localStorage.deadHero)+ 1;
                 deadHarry.play ();
                 clearInterval (volandDynamic);
