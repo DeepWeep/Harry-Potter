@@ -1,6 +1,15 @@
 'use strict';
 
 let firstAudio = document.getElementById('second_audio');
+
+let myMusic = function () {
+    firstAudio.play ();
+    myMusic = null;
+};
+    document.addEventListener ('keydown', myMusic);
+    document.addEventListener ('click', myMusic);
+    document.addEventListener ('contextmenu', myMusic);
+
 let voiceHarry = document.getElementById('voice_harry');
 let voicebeatricc = document.getElementById('voice_beatricc');
 let voiceDrag = document.getElementById('voice_drago');
@@ -51,7 +60,6 @@ let beatriccObject = {
                 loseButton.style.display = 'block';
                 firstAudio.pause();
                 transitionAudio.play();
-                transitionAudio.loop();
             }
         };
     },
@@ -88,7 +96,6 @@ let secondEnemyObject = {
                 loseButton.style.display = 'block';
                 firstAudio.pause();
                 transitionAudio.play();
-                transitionAudio.loop;
             }
         };
     },
@@ -165,7 +172,6 @@ let witchcraftHarry = function (event) {
         winButton.style.display = 'block';
         firstAudio.pause();
         transitionAudio.play();
-        transitionAudio.loop;
     };
 };
 };

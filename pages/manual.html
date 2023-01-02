@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <audio src="../audio/start.mp3" autoplay loop></audio>
+    <audio src="../audio/start.mp3" id="start_music" loop></audio>
     <div id="key_and_action">
         <div class="control_keys_1">Keys</div>
         <div class="control_keys_2">Action</div>
@@ -51,6 +51,22 @@
                 stroke-width="2" />
         </svg>
     </button>
+
+    <script defer>
+
+        'use strict';
+        
+        let startMusic = document.getElementById ('start_music');
+        let myMusic = function () {
+            startMusic.play ();
+            myMusic = null;
+        };
+            document.addEventListener ('keydown', myMusic);
+            document.addEventListener ('click', myMusic);
+            document.addEventListener ('contextmenu', myMusic);
+       
+    </script>
+
 </body>
 
 </html>

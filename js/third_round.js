@@ -1,6 +1,15 @@
 'use strict';
 
 let thirdAudio = document.getElementById ('third_audio');
+
+let myMusic = function () {
+    thirdAudio.play ();
+    myMusic = null;
+};
+    document.addEventListener ('keydown', myMusic);
+    document.addEventListener ('click', myMusic);
+    document.addEventListener ('contextmenu', myMusic);
+
 let voiceHarry = document.getElementById ('voice_harry_to_voland');
 let voiceVoland = document.getElementById ('voice_voland_to_harry');
 let handHarry = document.getElementById ('hand');
@@ -159,7 +168,6 @@ setTimeout (() => {
             transition.style.display = 'block';
             thirdAudio.pause ();
             transitionAudio.play ();
-            transitionAudio.loop ();
         }
     };
 },1500);
@@ -186,7 +194,6 @@ setTimeout (() => {
             transition.style.display = 'block';
             thirdAudio.pause ();
             transitionAudio.play ();
-            transitionAudio.loop ();
         }
     };
 },4500);

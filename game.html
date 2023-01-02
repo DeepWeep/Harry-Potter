@@ -10,16 +10,32 @@
 </head>
 
 <body>
-    <audio src="./audio/start.mp3" autoplay loop></audio>
+    <audio src="./audio/start.mp3" id="start_music" loop></audio>
     <main id="title_game">Main Harry`s Battle</main>
     <footer id="buttons_start_game">
         <button class="buttons_main" onclick="document.location='pages/lvl1.html'">START</button>
         <!--локальная ссылка на страницу первого раунда-->
-        <button class="buttons_main" onclick="document.location='https://www.google.com'">EXIT</button>
+        <button class="buttons_main" onclick="document.location='https://www.google.com'" >EXIT</button>
         <!--Выход в гугл-->
         <button class="buttons_main" onclick="document.location='pages/manual.html'">CONTROL</button>
         <!--Статистические данные из localStorage, доделаем под конец-->
     </footer>
+
+    <script defer>
+
+        'use strict';
+        
+        let startMusic = document.getElementById ('start_music');
+        let myMusic = function () {
+            startMusic.play ();
+            myMusic = null;
+        };
+            document.addEventListener ('keydown', myMusic);
+            document.addEventListener ('click', myMusic);
+            document.addEventListener ('contextmenu', myMusic);
+       
+    </script>
+
 </body>
 
 </html>
