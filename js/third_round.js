@@ -21,14 +21,6 @@ let woundVoland = document.getElementById ('woundvoland');
 let transition = document.getElementById ('transition');
 let transitionAudio = document.getElementById ('transition_audio');
 
-if (localStorage.deadHero === undefined) {
-    localStorage.setItem ('deadHero',0);
-};
-
-if (localStorage.deadEnemies === undefined) {
-    localStorage.setItem ('deadEnemies',0);
-};
-
 let harry = {
     energy: 1,
     doubleBeam: 1,
@@ -103,6 +95,7 @@ let witchcraftHarry = function (event) {
         voland.style.opacity = volandObject.energy;
         volandSecond.style.opacity = volandObject.energy;
         if (volandObject.energy === 0) {
+            localStorage.deadEnemies = Number (localStorage.deadEnemies)+ 1;
             deadVoland.play ();
             clearInterval (volandDynamic);
             setTimeout (() => {location.href='./last_page.html'},3000);
@@ -117,6 +110,7 @@ let witchcraftHarry = function (event) {
         voland.style.opacity = volandObject.energy;
         volandSecond.style.opacity = volandObject.energy;
         if (volandObject.energy === 0) {
+            localStorage.deadEnemies = Number (localStorage.deadEnemies)+ 1;
             deadVoland.play ();
             clearInterval (volandDynamic);
             setTimeout (() => {location.href='./last_page.html'},3000);

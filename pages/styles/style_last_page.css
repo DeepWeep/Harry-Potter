@@ -1,0 +1,55 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    font-size: 0;
+    margin: 0;
+    background-image: url(../../imgs/end.jpg);
+    background-size: 100% 100%;
+}
+
+.last_buttons {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bolder;
+    border: 2px solid beige;
+    border-radius: 20%;
+    background-color: #FFFFFF00;
+    color: beige;
+}
+
+#to_start_game {
+    bottom: 3vh;
+    left: 15vw;
+    width: 240px;
+    height: 100px;
+}
+
+#exit {
+    bottom: 3vh;
+    right: 15vw;
+    width: 240px;
+    height: 100px;
+}
+
+.text {
+    position: absolute;
+    top: 15vh;
+    width: 250px;
+    height: 300px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid beige;
+    border-radius: 20%;
+    background-color: #FFFFFF00;
+    color: beige;
+    text-align: center;
+}
+
+#authors_text {
+    left: 5vw;
+}
+
+#statistics_text {
+    right: 5vw;
+}

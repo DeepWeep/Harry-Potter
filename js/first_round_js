@@ -124,6 +124,7 @@ let witchcraftHarry = function (event) {
         };
         enemyTom.style.opacity = tomObject.energy;
         if (tomObject.energy === 0) {
+            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
             document.getElementById ('deadtom').play ();
             elixirTom.style.display = 'block';
         };
@@ -136,6 +137,7 @@ let witchcraftHarry = function (event) {
         };
         enemiesSecond.style.opacity = secondEnemyObject.energy;
         if (secondEnemyObject.energy === 0) {
+            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
             document.getElementById ('deaddrago').play ();
             elixirSecond.style.display = 'block';
         };

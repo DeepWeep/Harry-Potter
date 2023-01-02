@@ -27,14 +27,6 @@ let toNextRound = document.getElementById('to_next_round');
 let restartRound = document.getElementById('restart_round');
 let owl = document.getElementById('owl');
 
-if (localStorage.deadHero === undefined) {
-    localStorage.setItem('deadHero', 0);
-};
-
-if (localStorage.deadEnemies === undefined) {
-    localStorage.setItem('deadEnemies', 0);
-};
-
 let beatriccObject = {
     energy: 1,
     fireToHarry: function () {
@@ -122,6 +114,7 @@ let witchcraftHarry = function (event) {
         };
         enemybeatricc.style.opacity = beatriccObject.energy;
         if (beatriccObject.energy === 0) {
+            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
             document.getElementById('deadbeatricc').play();
             elixirbeatricc.style.display = 'block';
         };
@@ -134,6 +127,7 @@ let witchcraftHarry = function (event) {
         };
         enemiesSecond.style.opacity = secondEnemyObject.energy;
         if (secondEnemyObject.energy === 0) {
+            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
             document.getElementById('deadtail').play();
             elixirSecond.style.display = 'block';
         };

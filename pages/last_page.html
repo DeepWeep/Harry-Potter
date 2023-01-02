@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style_last_page.css">
+    <title>Harry Potter</title>
+</head>
+
+<body>
+  <audio src="../audio/game_end.mp3" autoplay loop></audio>      
+</body>
+<button class="last_buttons" id="to_start_game" onclick="document.location='../game.html'">BEGIN</button>
+<button class="last_buttons" id="exit" onclick="document.location='https://www.google.com'">EXIT</button>
+<div class="text" id="authors_text"><h2>Authors</h2>Two equal creators:<br><br>Yuri StarOFF<br>&<br>Nikita EgorOFF</div>
+<div class="text" id="statistics_text"><h2>Statistics</h2>Total enemies<br>destroyed:<br><br><span id="count_dead_enemies"></span><br><br>Hero death count:<br><br><span id="count_dead_hero"></span></div>
+<script defer>
+
+    'use strict';
+
+    let count_dead_enemies = document.getElementById ('count_dead_enemies');
+    let count_dead_hero = document.getElementById ('count_dead_hero');
+
+    count_dead_enemies.textContent = localStorage.deadEnemies;
+    count_dead_hero.textContent = localStorage.deadHero;
+    
+</script>
+
+</html>
