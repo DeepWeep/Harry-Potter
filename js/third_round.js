@@ -170,7 +170,31 @@ setTimeout (() => {
             transitionAudio.play ();
         }
     };
-},1500);
+},(Math.random()*2200 + 400));
+if (volandObject.energy < 0.54) {
+setTimeout (() => {
+    if (voland.energy <= 0 || harry.energy <= 0) {
+        clearInterval (volandDynamic);
+        return;
+    };
+    beamLeftToHero.style.display = 'block';
+    setTimeout (() => {beamLeftToHero.style.display = 'none'},300);
+    shotVoland.play();
+    if (torsoHarry.style.display !== 'block') {
+        woundHarry.play ();
+        harry.energy -= 0.1;
+        handHarry.style.opacity = harry.energy;
+        if (harry.energy <= 0) {
+            localStorage.deadHero = Number (localStorage.deadHero)+ 1;
+            deadHarry.play ();
+            clearInterval (volandDynamic);
+            transition.style.display = 'block';
+            thirdAudio.pause ();
+            transitionAudio.play ();
+        }
+    };
+},(Math.random()*2200 + 400));
+};
 setTimeout (() => {
     voland.style.display = 'none';
     volandSecond.style.display = 'block';
@@ -196,7 +220,31 @@ setTimeout (() => {
             transitionAudio.play ();
         }
     };
-},4500);
+},(Math.random()*2200 + 3400));
+if (volandObject.energy < 0.54) {
+    setTimeout (() => {
+        if (voland.energy <= 0 || harry.energy <= 0) {
+            clearInterval (volandDynamic);
+            return;
+        };
+        beamRightToHero.style.display = 'block';
+        setTimeout (() => {beamRightToHero.style.display = 'none'},300);
+        shotVoland.play();
+        if (torsoHarry.style.display !== 'block') {
+            woundHarry.play ();
+            harry.energy -= 0.1;
+            handHarry.style.opacity = harry.energy;
+            if (harry.energy <= 0) {
+                localStorage.deadHero = Number (localStorage.deadHero)+ 1;
+                deadHarry.play ();
+                clearInterval (volandDynamic);
+                transition.style.display = 'block';
+                thirdAudio.pause ();
+                transitionAudio.play ();
+            }
+        };
+    },(Math.random()*2200 + 3400));
+}
 setTimeout (() => {
     volandSecond.style.display = 'none';
 },6000);
