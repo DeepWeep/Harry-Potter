@@ -150,7 +150,7 @@ let witchcraftHarry = function (event) {
                 woundTom.play();
             };
             enemyTom.style.opacity = tomObject.energy;
-            if (tomObject.energy <= 0) {
+            if (tomObject.energy <= 0 && tomObject.energy >= -0.1) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadTom.play();
                 elixirTom.style.display = 'block';
@@ -163,7 +163,7 @@ let witchcraftHarry = function (event) {
                 woundDrago.play();
             };
             enemiesSecond.style.opacity = secondEnemyObject.energy;
-            if (secondEnemyObject.energy <= 0) {
+            if (secondEnemyObject.energy <= 0 && secondEnemyObject.energy >= -0.1) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadDrago.play();
                 elixirSecond.style.display = 'block';
@@ -179,7 +179,7 @@ let witchcraftHarry = function (event) {
                 woundDrago.play();
             };
             enemiesSecond.style.opacity = secondEnemyObject.energy;
-            if (secondEnemyObject.energy <= 0) {
+            if (secondEnemyObject.energy <= 0 && secondEnemyObject.energy >= -0.1) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadDrago.play();
                 elixirSecond.style.display = 'block';
@@ -188,7 +188,7 @@ let witchcraftHarry = function (event) {
                 woundTom.play();
             };
             enemyTom.style.opacity = tomObject.energy;
-            if (tomObject.energy <= 0) {
+            if (tomObject.energy <= 0 && tomObject.energy >= -0.1) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadTom.play();
                 elixirTom.style.display = 'block';
