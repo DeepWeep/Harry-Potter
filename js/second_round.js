@@ -1,24 +1,29 @@
 'use strict';
 
 let firstAudio = document.getElementById('second_audio');
+firstAudio.volume = 0.2;
 
 let myMusic = function () {
-    firstAudio.play ();
+    firstAudio.play();
     myMusic = null;
 };
-    document.addEventListener ('keydown', myMusic);
-    document.addEventListener ('click', myMusic);
-    document.addEventListener ('contextmenu', myMusic);
+document.addEventListener('keydown', myMusic);
+document.addEventListener('click', myMusic);
+document.addEventListener('contextmenu', myMusic);
 
 let voiceHarry = document.getElementById('voice_harry');
+voiceHarry.volume = 0.2;
 let voicebeatricc = document.getElementById('voice_beatricc');
-let voiceDrag = document.getElementById('voice_drago');
+voicebeatricc.volume = 0.2;
+let voiceTail = document.getElementById('voice_drago');
+voiceTail.volume = 0.2;
 let transitionAudio = document.getElementById('transition_audio');
+transitionAudio.volume = 0.2;
 let handHarry = document.getElementById('hand');
 let torsoHarry = document.getElementById('hero');
 let enemybeatricc = document.getElementById('beatricc');
 let enemiesSecond = document.getElementById('tail');
-let speak = document.getElementsByClassName ('speak');
+let speak = document.getElementsByClassName('speak');
 let elixirbeatricc = document.getElementById('potion_beatricc');
 let elixirSecond = document.getElementById('potion_tail');
 let beamHarryToSecond = document.getElementById('beamwand_harry_to_tail');
@@ -26,15 +31,28 @@ let beamHarryTobeatricc = document.getElementById('beamwand_harry_to_beatricc');
 let beambeatriccToHero = document.getElementById('beamwand_beatricc_to_hero');
 let beamSecondToHero = document.getElementById('beamwand_tail_to_hero');
 let shotbeatricc = document.getElementById('shotbeatricc');
+shotbeatricc.volume = 0.2;
 let shotSecond = document.getElementById('shottail');
+shotSecond.volume = 0.2;
 let deadHarry = document.getElementById('deadharry');
+deadHarry.volume = 0.2;
 let woundHarry = document.getElementById('woundharry');
+woundHarry.volume = 0.3;
 let transition = document.getElementById('transition');
 let loseButton = document.getElementById('lose');
 let winButton = document.getElementById('win');
 let toNextRound = document.getElementById('to_next_round');
 let restartRound = document.getElementById('restart_round');
 let owl = document.getElementById('owl');
+let woundBeatricc = document.getElementById('woundbeatricc');
+woundBeatricc.volume = 0.4;
+let woundTail = document.getElementById('woundtail');
+woundTail.volume = 0.4;
+let deadBeatricc = document.getElementById('deadbeatricc');
+deadBeatricc.volume = 0.3;
+let deadTail = document.getElementById('deadtail');
+deadTail.volume = 0.3;
+let shotHarry = document.getElementById('shotharry')
 
 let beatriccObject = {
     energy: 1,
@@ -67,8 +85,8 @@ let beatriccObject = {
         setTimeout(() => {
             voicebeatricc.play();
             speak[1].style.display = 'block';
-            setTimeout (() => {speak[1].style.display = 'none';},1200); 
-            }, 2500)
+            setTimeout(() => { speak[1].style.display = 'none'; }, 1200);
+        }, 2500)
     }
 };
 
@@ -101,10 +119,10 @@ let secondEnemyObject = {
     },
     myVoice: function () {
         setTimeout(() => {
-            voiceDrag.play();
+            voiceTail.play();
             speak[2].style.display = 'block';
-            setTimeout (() => {speak[2].style.display = 'none';},1200); 
-            }, 1250)
+            setTimeout(() => { speak[2].style.display = 'none'; }, 1200);
+        }, 1250)
     }
 };
 
@@ -112,68 +130,68 @@ let secondEnemyObject = {
 
 let witchcraftHarry = function (event) {
     if (torsoHarry.style.display !== 'block') {
-    document.getElementById('shotharry').play();
-    if (event.button === 0) {
-        beamHarryTobeatricc.style.display = 'block';
-        beatriccObject.energy -= 0.125;
-        if (beatriccObject.energy > 0) {
-            document.getElementById('woundbeatricc').play();
+        shotHarry.play();
+        if (event.button === 0) {
+            beamHarryTobeatricc.style.display = 'block';
+            beatriccObject.energy -= 0.125;
+            if (beatriccObject.energy > 0) {
+                woundBeatricc.play();
+            };
+            enemybeatricc.style.opacity = beatriccObject.energy;
+            if (beatriccObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadBeatricc.play();
+                elixirbeatricc.style.display = 'block';
+            };
         };
-        enemybeatricc.style.opacity = beatriccObject.energy;
-        if (beatriccObject.energy === 0) {
-            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
-            document.getElementById('deadbeatricc').play();
-            elixirbeatricc.style.display = 'block';
+        if (event.button === 2) {
+            beamHarryToSecond.style.display = 'block';
+            secondEnemyObject.energy -= 0.125;
+            if (secondEnemyObject.energy > 0) {
+                woundTail.play();
+            };
+            enemiesSecond.style.opacity = secondEnemyObject.energy;
+            if (secondEnemyObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadTail.play();
+                elixirSecond.style.display = 'block';
+            };
+        };
+        if (event.button === 1 && harry.doubleBeam === 1) {
+            harry.doubleBeam = 0;
+            beamHarryTobeatricc.style.display = 'block';
+            beatriccObject.energy -= 0.125;
+            beamHarryToSecond.style.display = 'block';
+            secondEnemyObject.energy -= 0.125;
+            if (secondEnemyObject.energy > 0) {
+                wounTail.play();
+            };
+            enemiesSecond.style.opacity = secondEnemyObject.energy;
+            if (secondEnemyObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadTail.play();
+                elixirSecond.style.display = 'block';
+            };
+            if (beatriccObject.energy > 0) {
+                woundBeatricc.play();
+            };
+            enemybeatricc.style.opacity = beatriccObject.energy;
+            if (beatriccObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadBeatricc.play();
+                elixirbeatricc.style.display = 'block';
+            };
+        };
+        if (beatriccObject.energy <= 0 && secondEnemyObject.energy <= 0) {
+            clearInterval(beatriccFireToHarry);
+            clearInterval(secondFireToHarry);
+            transition.style.display = 'block';
+            toNextRound.style.display = 'block';
+            winButton.style.display = 'block';
+            firstAudio.pause();
+            transitionAudio.play();
         };
     };
-    if (event.button === 2) {
-        beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.125;
-        if (secondEnemyObject.energy > 0) {
-            document.getElementById('woundtail').play();
-        };
-        enemiesSecond.style.opacity = secondEnemyObject.energy;
-        if (secondEnemyObject.energy === 0) {
-            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
-            document.getElementById('deadtail').play();
-            elixirSecond.style.display = 'block';
-        };
-    };
-    if (event.button === 1 && harry.doubleBeam === 1) {
-        harry.doubleBeam = 0;
-        beamHarryTobeatricc.style.display = 'block';
-        beatriccObject.energy -= 0.125;
-        beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.125;
-        if (secondEnemyObject.energy > 0) {
-            document.getElementById('woundtail').play();
-        };
-        enemiesSecond.style.opacity = secondEnemyObject.energy;
-        if (secondEnemyObject.energy === 0) {
-            localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
-            document.getElementById('deadtail').play();
-            elixirSecond.style.display = 'block';
-        };
-        if (beatriccObject.energy > 0) {
-            document.getElementById('woundbeatricc').play();
-        };
-        enemybeatricc.style.opacity = beatriccObject.energy;
-        if (beatriccObject.energy === 0) {
-            localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
-            document.getElementById('deadbeatricc').play();
-            elixirbeatricc.style.display = 'block';
-        };
-    };
-    if (beatriccObject.energy <= 0 && secondEnemyObject.energy <= 0) {
-        clearInterval(beatriccFireToHarry);
-        clearInterval(secondFireToHarry);
-        transition.style.display = 'block';
-        toNextRound.style.display = 'block';
-        winButton.style.display = 'block';
-        firstAudio.pause();
-        transitionAudio.play();
-    };
-};
 };
 
 let harry = {
@@ -225,7 +243,7 @@ let harry = {
     broadcast: function () {
         voiceHarry.play();
         speak[0].style.display = 'block';
-        setTimeout (() => {speak[0].style.display = 'none';},1200);
+        setTimeout(() => { speak[0].style.display = 'none'; }, 1200);
         harry.subscribers.forEach((sub) => { sub() });
     }
 };
