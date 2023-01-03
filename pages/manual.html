@@ -55,16 +55,17 @@
     <script defer>
 
         'use strict';
-        
-        let startMusic = document.getElementById ('start_music');
+
+        let startMusic = document.getElementById('start_music');
+        startMusic.volume = 0.2;
         let myMusic = function () {
-            startMusic.play ();
+            startMusic.play();
             myMusic = null;
         };
-            document.addEventListener ('keydown', myMusic);
-            document.addEventListener ('click', myMusic);
-            document.addEventListener ('contextmenu', myMusic);
-       
+        document.addEventListener('keydown', myMusic);
+        document.addEventListener('click', myMusic);
+        document.addEventListener('contextmenu', myMusic);
+
     </script>
 
 </body>
