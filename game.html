@@ -15,7 +15,7 @@
     <footer id="buttons_start_game">
         <button class="buttons_main" onclick="document.location='pages/lvl1.html'">START</button>
         <!--локальная ссылка на страницу первого раунда-->
-        <button class="buttons_main" onclick="document.location='https://www.google.com'" >EXIT</button>
+        <button class="buttons_main" onclick="document.location='https://www.google.com'">EXIT</button>
         <!--Выход в гугл-->
         <button class="buttons_main" onclick="document.location='pages/manual.html'">CONTROL</button>
         <!--Статистические данные из localStorage, доделаем под конец-->
@@ -26,18 +26,19 @@
     <script defer>
 
         'use strict';
-        
-        let startMusic = document.getElementById ('start_music');
-        let announcement = document.getElementById ('announcement');
+
+        let startMusic = document.getElementById('start_music');
+        startMusic.volume = 0.2;
+        let announcement = document.getElementById('announcement');
         let myMusic = function () {
             announcement.style.display = 'none';
-            startMusic.play ();
+            startMusic.play();
             myMusic = null;
         };
-            document.addEventListener ('keydown', myMusic);
-            document.addEventListener ('click', myMusic);
-            document.addEventListener ('contextmenu', myMusic);
-       
+        document.addEventListener('keydown', myMusic);
+        document.addEventListener('click', myMusic);
+        document.addEventListener('contextmenu', myMusic);
+
     </script>
 
 </body>
