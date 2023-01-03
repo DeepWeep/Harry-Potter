@@ -1,83 +1,103 @@
 'use strict';
 
-let firstAudio = document.getElementById ('first_audio');
+let firstAudio = document.getElementById('first_audio');
+firstAudio.volume = 0.2;
 
 let myMusic = function () {
-    firstAudio.play ();
+    firstAudio.play();
     myMusic = null;
 };
-    document.addEventListener ('keydown', myMusic);
-    document.addEventListener ('click', myMusic);
-    document.addEventListener ('contextmenu', myMusic);
+document.addEventListener('keydown', myMusic);
+document.addEventListener('click', myMusic);
+document.addEventListener('contextmenu', myMusic);
 
-let voiceHarry = document.getElementById ('voice_harry');
-let voiceTom = document.getElementById ('voice_tom');
-let voiceDrag = document.getElementById ('voice_drago');
-let transitionAudio = document.getElementById ('transition_audio');
-let handHarry = document.getElementById ('hand');
-let torsoHarry = document.getElementById ('hero');
-let enemyTom = document.getElementById ('tom');
-let enemiesSecond = document.getElementById ('drago');
-let speak = document.getElementsByClassName ('speak');
-let elixirTom = document.getElementById ('potion_tom');
-let elixirSecond = document.getElementById ('potion_drago');
-let beamHarryToSecond = document.getElementById ('beamwand_harry_to_drago');
-let beamHarryToTom = document.getElementById ('beamwand_harry_to_tom');
-let beamTomToHero = document.getElementById ('beamwand_tom_to_hero');
-let beamSecondToHero = document.getElementById ('beamwand_drago_to_hero');
-let shot_Harry = document.getElementById ('shotharry');
-let shotTom = document.getElementById ('shottom');
-let shotSecond = document.getElementById ('shotdrago');
-let deadHarry = document.getElementById ('deadharry');
-let woundHarry = document.getElementById ('woundharry');
-let transition = document.getElementById ('transition');
-let loseButton = document.getElementById ('lose');
-let winButton = document.getElementById ('win');
-let toNextRound = document.getElementById ('to_next_round');
-let restartRound = document.getElementById ('restart_round');
-let owl = document.getElementById ('owl');
+let voiceHarry = document.getElementById('voice_harry');
+voiceHarry.volume = 0.2;
+let voiceTom = document.getElementById('voice_tom');
+voiceTom.volume = 0.2;
+let voiceDrag = document.getElementById('voice_drago');
+voiceDrag.volume = 0.2;
+let transitionAudio = document.getElementById('transition_audio');
+transitionAudio.volume = 0.2;
+let handHarry = document.getElementById('hand');
+let torsoHarry = document.getElementById('hero');
+let enemyTom = document.getElementById('tom');
+let enemiesSecond = document.getElementById('drago');
+let speak = document.getElementsByClassName('speak');
+let elixirTom = document.getElementById('potion_tom');
+let elixirSecond = document.getElementById('potion_drago');
+let beamHarryToSecond = document.getElementById('beamwand_harry_to_drago');
+let beamHarryToTom = document.getElementById('beamwand_harry_to_tom');
+let beamTomToHero = document.getElementById('beamwand_tom_to_hero');
+let beamSecondToHero = document.getElementById('beamwand_drago_to_hero');
+let shot_Harry = document.getElementById('shotharry');
+shot_Harry.volume = 0.2;
+let shotTom = document.getElementById('shottom');
+shotTom.volume = 0.2;
+let shotSecond = document.getElementById('shotdrago');
+shotSecond.volume = 0.2;
+let deadHarry = document.getElementById('deadharry');
+deadHarry.volume = 0.2;
+let woundHarry = document.getElementById('woundharry');
+woundHarry.volume = 0.3;
+let transition = document.getElementById('transition');
+let loseButton = document.getElementById('lose');
+let winButton = document.getElementById('win');
+let toNextRound = document.getElementById('to_next_round');
+let restartRound = document.getElementById('restart_round');
+let owl = document.getElementById('owl');
+let woundTom = document.getElementById('woundtom');
+woundTom.volume = 0.3;
+let woundDrago = document.getElementById('wounddrago');
+woundDrago.volume = 0.3;
+let deadTom = document.getElementById('deadtom');
+deadTom.volume = 0.4;
+let deadDrago = document.getElementById('deaddrago');
+deadDrago.volume = 0.4;
+
+
 
 if (localStorage.deadHero === undefined) {
-    localStorage.setItem ('deadHero',0);
+    localStorage.setItem('deadHero', 0);
 };
 
 if (localStorage.deadEnemies === undefined) {
-    localStorage.setItem ('deadEnemies',0);
+    localStorage.setItem('deadEnemies', 0);
 };
 
 let tomObject = {
     energy: 1,
     fireToHarry: function () {
         if (tomObject.energy <= 0 || harry.energy <= 0) {
-            clearInterval (tomFireToHarry);
+            clearInterval(tomFireToHarry);
             return;
         };
         beamTomToHero.style.display = 'block';
         shotTom.play();
-        setTimeout (() => {beamTomToHero.style.display = 'none';},300);
+        setTimeout(() => { beamTomToHero.style.display = 'none'; }, 300);
         if (torsoHarry.style.display !== 'block') {
-            woundHarry.play ();
+            woundHarry.play();
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
             if (harry.energy <= 0) {
-                localStorage.deadHero = Number (localStorage.deadHero)+ 1;
-                deadHarry.play ();
-                clearInterval (tomFireToHarry);
-                clearInterval (secondFireToHarry);
+                localStorage.deadHero = Number(localStorage.deadHero) + 1;
+                deadHarry.play();
+                clearInterval(tomFireToHarry);
+                clearInterval(secondFireToHarry);
                 transition.style.display = 'block';
                 restartRound.style.display = 'block';
                 loseButton.style.display = 'block';
-                firstAudio.pause ();
-                transitionAudio.play ();
+                firstAudio.pause();
+                transitionAudio.play();
             }
         };
     },
     myVoice: function () {
-        setTimeout (() => {
+        setTimeout(() => {
             voiceTom.play()
             speak[1].style.display = 'block';
-            setTimeout (() => {speak[1].style.display = 'none';},1200);
-        },2500)
+            setTimeout(() => { speak[1].style.display = 'none'; }, 1200);
+        }, 2500)
 
     }
 };
@@ -86,35 +106,35 @@ let secondEnemyObject = {
     energy: 1,
     fireToHarry: function () {
         if (secondEnemyObject.energy <= 0 || harry.energy <= 0) {
-            clearInterval (secondFireToHarry);
+            clearInterval(secondFireToHarry);
             return;
         };
         beamSecondToHero.style.display = 'block';
         shotSecond.play();
-        setTimeout (() => {beamSecondToHero.style.display = 'none';},300); 
+        setTimeout(() => { beamSecondToHero.style.display = 'none'; }, 300);
         if (torsoHarry.style.display !== 'block') {
-            woundHarry.play ();
+            woundHarry.play();
             harry.energy -= 0.1;
             handHarry.style.opacity = harry.energy;
             if (harry.energy <= 0) {
-                localStorage.deadHero = Number (localStorage.deadHero)+ 1;
-                deadHarry.play ();
-                clearInterval (tomFireToHarry);
-                clearInterval (secondFireToHarry);
+                localStorage.deadHero = Number(localStorage.deadHero) + 1;
+                deadHarry.play();
+                clearInterval(tomFireToHarry);
+                clearInterval(secondFireToHarry);
                 transition.style.display = 'block';
                 restartRound.style.display = 'block';
                 loseButton.style.display = 'block';
-                firstAudio.pause ();
-                transitionAudio.play ();
+                firstAudio.pause();
+                transitionAudio.play();
             }
-        };   
+        };
     },
     myVoice: function () {
-        setTimeout (() => {
+        setTimeout(() => {
             voiceDrag.play()
             speak[2].style.display = 'block';
-            setTimeout (() => {speak[2].style.display = 'none';},1200);
-        },1250)
+            setTimeout(() => { speak[2].style.display = 'none'; }, 1200);
+        }, 1250)
     }
 };
 
@@ -122,68 +142,68 @@ let secondEnemyObject = {
 
 let witchcraftHarry = function (event) {
     if (torsoHarry.style.display !== 'block') {
-    shot_Harry.play ();
-    if (event.button === 0) {
-        beamHarryToTom.style.display = 'block';
-        tomObject.energy -= 0.25;
-        if (tomObject.energy > 0) {
-            document.getElementById ('woundtom').play ();
+        shot_Harry.play();
+        if (event.button === 0) {
+            beamHarryToTom.style.display = 'block';
+            tomObject.energy -= 0.2;
+            if (tomObject.energy > 0) {
+                woundTom.play();
+            };
+            enemyTom.style.opacity = tomObject.energy;
+            if (tomObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadTom.play();
+                elixirTom.style.display = 'block';
+            };
         };
-        enemyTom.style.opacity = tomObject.energy;
-        if (tomObject.energy === 0) {
-            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
-            document.getElementById ('deadtom').play ();
-            elixirTom.style.display = 'block';
+        if (event.button === 2) {
+            beamHarryToSecond.style.display = 'block';
+            secondEnemyObject.energy -= 0.2;
+            if (secondEnemyObject.energy > 0) {
+                woundDrago.play();
+            };
+            enemiesSecond.style.opacity = secondEnemyObject.energy;
+            if (secondEnemyObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadDrago.play();
+                elixirSecond.style.display = 'block';
+            };
         };
-    };
-    if (event.button === 2) {
-        beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.25;
-        if (secondEnemyObject.energy > 0) {
-            document.getElementById ('wounddrago').play ();
+        if (event.button === 1 && harry.doubleBeam === 1) {
+            harry.doubleBeam = 0;
+            beamHarryToTom.style.display = 'block';
+            tomObject.energy -= 0.2;
+            beamHarryToSecond.style.display = 'block';
+            secondEnemyObject.energy -= 0.2;
+            if (secondEnemyObject.energy > 0) {
+                woundDrago.play();
+            };
+            enemiesSecond.style.opacity = secondEnemyObject.energy;
+            if (secondEnemyObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadDrago.play();
+                elixirSecond.style.display = 'block';
+            };
+            if (tomObject.energy > 0) {
+                woundTom.play();
+            };
+            enemyTom.style.opacity = tomObject.energy;
+            if (tomObject.energy === 0) {
+                localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
+                deadTom.play();
+                elixirTom.style.display = 'block';
+            };
         };
-        enemiesSecond.style.opacity = secondEnemyObject.energy;
-        if (secondEnemyObject.energy === 0) {
-            localStorage.deadEnemies = Number (localStorage.deadEnemies) + 1;
-            document.getElementById ('deaddrago').play ();
-            elixirSecond.style.display = 'block';
-        };
-    };
-    if (event.button === 1 && harry.doubleBeam === 1) {
-        harry.doubleBeam = 0;
-        beamHarryToTom.style.display = 'block';
-        tomObject.energy -= 0.25;
-        beamHarryToSecond.style.display = 'block';
-        secondEnemyObject.energy -= 0.25;
-        if (secondEnemyObject.energy > 0) {
-            document.getElementById ('wounddrago').play ();
-        };
-        enemiesSecond.style.opacity = secondEnemyObject.energy;
-        if (secondEnemyObject.energy === 0) {
-            localStorage.deadEnemies = Number (localStorage.deadEnemies)+ 1;
-            document.getElementById ('deaddrago').play ();
-            elixirSecond.style.display = 'block';
-        };
-        if (tomObject.energy > 0) {
-            document.getElementById ('woundtom').play ();
-        };
-        enemyTom.style.opacity = tomObject.energy;
-        if (tomObject.energy === 0) {
-            localStorage.deadEnemies = Number (localStorage.deadEnemies)+ 1;
-            document.getElementById ('deadtom').play ();
-            elixirTom.style.display = 'block';
-        };
-    };
-    if (tomObject.energy <= 0 && secondEnemyObject.energy <= 0) {
-            clearInterval (tomFireToHarry);
-            clearInterval (secondFireToHarry);
+        if (tomObject.energy <= 0 && secondEnemyObject.energy <= 0) {
+            clearInterval(tomFireToHarry);
+            clearInterval(secondFireToHarry);
             transition.style.display = 'block';
             toNextRound.style.display = 'block';
             winButton.style.display = 'block';
-            firstAudio.pause ();
-            transitionAudio.play ();
-    }; 
-};
+            firstAudio.pause();
+            transitionAudio.play();
+        };
+    };
 };
 
 let harry = {
@@ -192,7 +212,7 @@ let harry = {
     subscribers: [],
     defenseIn: function (event) {
         if (event.code === 'Space') {
-        torsoHarry.style.display = 'block';
+            torsoHarry.style.display = 'block';
         };
         if (event.code === 'ArrowRight') {
             if (elixirSecond.style.display === 'block') {
@@ -215,7 +235,7 @@ let harry = {
         };
     },
     fireIn: function (event) {
-        witchcraftHarry (event);
+        witchcraftHarry(event);
     },
     fireOut: function (event) {
         if (event.button === 0) {
@@ -230,32 +250,32 @@ let harry = {
         };
     },
     subscribe: function (newSubscribe) {
-        harry.subscribers.push (newSubscribe);
+        harry.subscribers.push(newSubscribe);
     },
     broadcast: function () {
-        voiceHarry.play ();
+        voiceHarry.play();
         speak[0].style.display = 'block';
-        setTimeout (() => {speak[0].style.display = 'none';},1200);
-        harry.subscribers.forEach ((sub) => {sub ()});
+        setTimeout(() => { speak[0].style.display = 'none'; }, 1200);
+        harry.subscribers.forEach((sub) => { sub() });
     }
 };
 
 //Ниже записываем заклинание для паттерна Observer
 
-harry.subscribe (secondEnemyObject.myVoice); 
-harry.subscribe (tomObject.myVoice);
+harry.subscribe(secondEnemyObject.myVoice);
+harry.subscribe(tomObject.myVoice);
 
-let tomFireToHarry = setInterval (tomObject.fireToHarry,3500);
-let secondFireToHarry = setInterval (secondEnemyObject.fireToHarry,4500);
+let tomFireToHarry = setInterval(tomObject.fireToHarry, 3500);
+let secondFireToHarry = setInterval(secondEnemyObject.fireToHarry, 4500);
 
-document.addEventListener ('keydown',harry.defenseIn);
-document.addEventListener ('keyup',harry.defenseOut);
-document.addEventListener ('mousedown',harry.fireIn);
-document.addEventListener ('mouseup',harry.fireOut);
-document.addEventListener ('contextmenu', (event) => {event.preventDefault ()});
-document.addEventListener ('keydown', (event) =>  {
+document.addEventListener('keydown', harry.defenseIn);
+document.addEventListener('keyup', harry.defenseOut);
+document.addEventListener('mousedown', harry.fireIn);
+document.addEventListener('mouseup', harry.fireOut);
+document.addEventListener('contextmenu', (event) => { event.preventDefault() });
+document.addEventListener('keydown', (event) => {
     if (event.code === 'KeyV') {
-        harry.broadcast ();
+        harry.broadcast();
     }
 });
 
