@@ -192,7 +192,7 @@ let moveAndShotOfMainEnemy = function () {
             shotVoland.play();
             if (torsoHarry.style.display !== 'block') {
                 woundHarry.play();
-                harry.energy -= 0.1;
+                harry.energy -= 0.2;
                 handHarry.style.opacity = harry.energy;
                 if (harry.energy <= 0) {
                     volandObject.energy = 1;

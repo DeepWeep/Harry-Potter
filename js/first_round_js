@@ -145,12 +145,12 @@ let witchcraftHarry = function (event) {
         shot_Harry.play();
         if (event.button === 0) {
             beamHarryToTom.style.display = 'block';
-            tomObject.energy -= 0.2;
+            tomObject.energy -= 0.201;
             if (tomObject.energy > 0) {
                 woundTom.play();
             };
             enemyTom.style.opacity = tomObject.energy;
-            if (tomObject.energy === 0) {
+            if (tomObject.energy <= 0) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadTom.play();
                 elixirTom.style.display = 'block';
@@ -158,12 +158,12 @@ let witchcraftHarry = function (event) {
         };
         if (event.button === 2) {
             beamHarryToSecond.style.display = 'block';
-            secondEnemyObject.energy -= 0.2;
+            secondEnemyObject.energy -= 0.201;
             if (secondEnemyObject.energy > 0) {
                 woundDrago.play();
             };
             enemiesSecond.style.opacity = secondEnemyObject.energy;
-            if (secondEnemyObject.energy === 0) {
+            if (secondEnemyObject.energy <= 0) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadDrago.play();
                 elixirSecond.style.display = 'block';
@@ -172,14 +172,14 @@ let witchcraftHarry = function (event) {
         if (event.button === 1 && harry.doubleBeam === 1) {
             harry.doubleBeam = 0;
             beamHarryToTom.style.display = 'block';
-            tomObject.energy -= 0.2;
+            tomObject.energy -= 0.201;
             beamHarryToSecond.style.display = 'block';
-            secondEnemyObject.energy -= 0.2;
+            secondEnemyObject.energy -= 0.201;
             if (secondEnemyObject.energy > 0) {
                 woundDrago.play();
             };
             enemiesSecond.style.opacity = secondEnemyObject.energy;
-            if (secondEnemyObject.energy === 0) {
+            if (secondEnemyObject.energy <= 0) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadDrago.play();
                 elixirSecond.style.display = 'block';
@@ -188,7 +188,7 @@ let witchcraftHarry = function (event) {
                 woundTom.play();
             };
             enemyTom.style.opacity = tomObject.energy;
-            if (tomObject.energy === 0) {
+            if (tomObject.energy <= 0) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadTom.play();
                 elixirTom.style.display = 'block';
