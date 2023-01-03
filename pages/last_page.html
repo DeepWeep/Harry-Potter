@@ -10,32 +10,38 @@
 </head>
 
 <body>
-  <audio src="../audio/game_end.mp3" id="start_music" loop></audio>      
+    <audio src="../audio/game_end.mp3" id="start_music" loop></audio>
 </body>
 <button class="last_buttons" id="to_start_game" onclick="document.location='../game.html'">BEGIN</button>
 <button class="last_buttons" id="exit" onclick="document.location='https://www.google.com'">EXIT</button>
-<div class="text" id="authors_text"><h2>Authors</h2>Two equal creators:<br><br>Yuri StarOFF<br>&<br>Nikita EgorOFF</div>
-<div class="text" id="statistics_text"><h2>Statistics</h2>Total enemies<br>destroyed:<br><br><span id="count_dead_enemies"></span><br><br>Hero death count:<br><br><span id="count_dead_hero"></span></div>
+<div class="text" id="authors_text">
+    <h2>Authors</h2>Two equal creators:<br><br>Yuri StarOFF<br>&<br>Nikita EgorOFF
+</div>
+<div class="text" id="statistics_text">
+    <h2>Statistics</h2>Total enemies<br>destroyed:<br><br><span id="count_dead_enemies"></span><br><br>Hero death
+    count:<br><br><span id="count_dead_hero"></span>
+</div>
 
 <script defer>
 
     'use strict';
 
-    let startMusic = document.getElementById ('start_music');
+    let startMusic = document.getElementById('start_music');
+    startMusic.volume = 0.2;
     let myMusic = function () {
-        startMusic.play ();
+        startMusic.play();
         myMusic = null;
     };
-    document.addEventListener ('keydown', myMusic);
-    document.addEventListener ('click', myMusic);
-    document.addEventListener ('contextmenu', myMusic);
+    document.addEventListener('keydown', myMusic);
+    document.addEventListener('click', myMusic);
+    document.addEventListener('contextmenu', myMusic);
 
-    let count_dead_enemies = document.getElementById ('count_dead_enemies');
-    let count_dead_hero = document.getElementById ('count_dead_hero');
+    let count_dead_enemies = document.getElementById('count_dead_enemies');
+    let count_dead_hero = document.getElementById('count_dead_hero');
 
     count_dead_enemies.textContent = localStorage.deadEnemies;
     count_dead_hero.textContent = localStorage.deadHero;
-    
+
 </script>
 
 </html>
