@@ -21,12 +21,16 @@
         <!--Статистические данные из localStorage, доделаем под конец-->
     </footer>
 
+    <div id="announcement"><br><br><br>To get sound effects on any page,<br><br>any key must be pressed!</div>
+
     <script defer>
 
         'use strict';
         
         let startMusic = document.getElementById ('start_music');
+        let announcement = document.getElementById ('announcement');
         let myMusic = function () {
+            announcement.style.display = 'none';
             startMusic.play ();
             myMusic = null;
         };

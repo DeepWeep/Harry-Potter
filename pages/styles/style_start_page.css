@@ -38,3 +38,16 @@ body {
     background-color: #FFFFFF00;
     color: beige;
 }
+
+#announcement {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0vw;
+    top: 0vh;
+    background-image: linear-gradient(45deg, red 0%, black 100%);
+    font-size: 60px;
+    color: beige;
+    font-weight: bolder;
+    text-align: center;
+}
