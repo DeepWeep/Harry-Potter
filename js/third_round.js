@@ -116,6 +116,7 @@ let witchcraftHarry = function (event) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadVoland.play();
                 clearInterval(volandDynamic);
+                harry.energy = 1;
                 setTimeout(() => { location.href = './last_page.html' }, 3000);
             };
         };
@@ -131,6 +132,7 @@ let witchcraftHarry = function (event) {
                 localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                 deadVoland.play();
                 clearInterval(volandDynamic);
+                harry.energy = 1;
                 setTimeout(() => { location.href = './last_page.html' }, 3000);
             };
         };
@@ -147,6 +149,7 @@ let witchcraftHarry = function (event) {
                     localStorage.deadEnemies = Number(localStorage.deadEnemies) + 1;
                     deadVoland.play();
                     clearInterval(volandDynamic);
+                    harry.energy = 1;
                     setTimeout(() => { location.href = './last_page.html' }, 3000);
                 };
             };
